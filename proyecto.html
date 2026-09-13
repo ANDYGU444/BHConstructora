@@ -1,0 +1,515 @@
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Proyecto | BH Constructora</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  >
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <div class="container nav-wrap">
+
+    <a class="brand" href="index.html">
+
+      <span class="brand-mark">BH</span>
+
+      <span class="brand-text">
+
+        <strong>CONSTRUCTORA</strong>
+
+        <small>
+          HACEMOS REALIDAD TUS PROYECTOS
+        </small>
+
+      </span>
+
+    </a>
+
+
+    <button
+      class="menu-toggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      type="button"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+
+    <nav class="main-nav">
+
+      <a href="index.html">Inicio</a>
+
+      <a href="bonos.html">Bonos</a>
+
+      <a href="servicios.html">Servicios</a>
+
+      <a
+        href="proyectos.html"
+        class="active"
+      >
+        Proyectos
+      </a>
+
+      <a href="nosotros.html">Nosotros</a>
+
+      <a
+        href="contacto.html"
+        class="nav-cta"
+      >
+        Contáctanos
+        <span>↗</span>
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+<section class="section" style="padding-top:150px;">
+
+  <div class="container">
+
+    <div class="breadcrumb">
+
+      <a href="index.html">
+        Inicio
+      </a>
+
+      <span>›</span>
+
+      <a href="proyectos.html">
+        Proyectos
+      </a>
+
+      <span>›</span>
+
+      <strong id="project-name">
+        Proyecto
+      </strong>
+
+    </div>
+
+
+    <div
+      id="project-detail"
+      class="detail-grid"
+    >
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section bg-light">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div>
+
+        <p class="eyebrow dark">
+
+          <span></span>
+
+          INFORMACIÓN
+
+        </p>
+
+        <h2>
+          Características del
+          <em>proyecto.</em>
+        </h2>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="project-specs"
+      class="detail-specs"
+    >
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section section-dark">
+
+  <div
+    class="container"
+    style="text-align:center;max-width:800px;"
+  >
+
+    <p class="eyebrow" style="justify-content:center;">
+
+      <span></span>
+
+      ¿TE INTERESA?
+
+    </p>
+
+    <h2>
+      Construyamos
+      <em>tu proyecto.</em>
+    </h2>
+
+    <p
+      style="color:rgba(255,255,255,.65);margin:25px auto 30px;"
+    >
+      Podemos conversar sobre tus necesidades
+      y las posibilidades para tu proyecto.
+    </p>
+
+    <a
+      href="contacto.html"
+      class="btn btn-gold"
+    >
+      Contactarnos
+      <span>→</span>
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="container footer-top">
+
+    <div>
+
+      <a class="brand" href="index.html">
+
+        <span class="brand-mark">BH</span>
+
+        <span class="brand-text">
+
+          <strong>CONSTRUCTORA</strong>
+
+          <small>
+            HACEMOS REALIDAD TUS PROYECTOS
+          </small>
+
+        </span>
+
+      </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h3>Navegación</h3>
+
+      <a href="index.html">Inicio</a>
+      <a href="bonos.html">Bonos</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="nosotros.html">Nosotros</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h3>Contacto</h3>
+
+      <a href="tel:+50627710636">
+        2771-0636
+      </a>
+
+      <a href="mailto:contacto@bhconstructora.com">
+        contacto@bhconstructora.com
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="container footer-bottom">
+
+    <span>
+      © <span data-year>2026</span>
+      BH Constructora.
+    </span>
+
+    <span>
+      San Isidro de El General, Costa Rica
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+
+<script>
+
+const proyectosDetalle = [
+
+  {
+    id: 1,
+    nombre: "Hogar Contemporáneo",
+    categoria: "Vivienda",
+    ubicacion: "Costa Rica",
+    imagen: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90",
+    descripcion: "Proyecto residencial diseñado para combinar funcionalidad, iluminación y aprovechamiento del espacio.",
+    area: "85 m²",
+    habitaciones: "3",
+    banos: "2"
+  },
+
+  {
+    id: 2,
+    nombre: "Espacios para Vivir",
+    categoria: "Vivienda",
+    ubicacion: "Costa Rica",
+    imagen: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90",
+    descripcion: "Vivienda pensada para ofrecer espacios cómodos y una distribución práctica para la familia.",
+    area: "70 m²",
+    habitaciones: "3",
+    banos: "1"
+  },
+
+  {
+    id: 3,
+    nombre: "Arquitectura Funcional",
+    categoria: "Diseño",
+    ubicacion: "Costa Rica",
+    imagen: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=90",
+    descripcion: "Propuesta arquitectónica enfocada en el uso eficiente de cada espacio.",
+    area: "60 m²",
+    habitaciones: "2",
+    banos: "1"
+  }
+
+];
+
+
+const params =
+  new URLSearchParams(window.location.search);
+
+const id =
+  Number(params.get("id")) || 1;
+
+const proyecto =
+  proyectosDetalle.find(
+    item => item.id === id
+  )
+  || proyectosDetalle[0];
+
+
+document.title =
+  proyecto.nombre +
+  " | BH Constructora";
+
+
+document.querySelector(
+  "#project-name"
+).textContent =
+  proyecto.nombre;
+
+
+document.querySelector(
+  "#project-detail"
+).innerHTML = `
+
+  <div class="detail-image">
+
+    <img
+      src="${proyecto.imagen}"
+      alt="${proyecto.nombre}"
+    >
+
+  </div>
+
+
+  <div class="detail-content">
+
+    <p class="eyebrow dark">
+
+      <span></span>
+
+      ${proyecto.categoria.toUpperCase()}
+
+    </p>
+
+    <h1>
+      ${proyecto.nombre}
+    </h1>
+
+    <p class="detail-description">
+      ${proyecto.descripcion}
+    </p>
+
+    <div class="detail-specs">
+
+      <div class="detail-spec">
+
+        <strong>
+          ${proyecto.area}
+        </strong>
+
+        <span>
+          Área
+        </span>
+
+      </div>
+
+
+      <div class="detail-spec">
+
+        <strong>
+          ${proyecto.habitaciones}
+        </strong>
+
+        <span>
+          Habitaciones
+        </span>
+
+      </div>
+
+
+      <div class="detail-spec">
+
+        <strong>
+          ${proyecto.banos}
+        </strong>
+
+        <span>
+          Baños
+        </span>
+
+      </div>
+
+
+      <div class="detail-spec">
+
+        <strong>
+          ${proyecto.ubicacion}
+        </strong>
+
+        <span>
+          Ubicación
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="contacto.html"
+      class="btn btn-gold"
+    >
+      Consultar proyecto
+      <span>→</span>
+    </a>
+
+  </div>
+
+`;
+
+
+document.querySelector(
+  "#project-specs"
+).innerHTML = `
+
+  <div class="detail-spec">
+
+    <strong>
+      ${proyecto.area}
+    </strong>
+
+    <span>
+      Área construida
+    </span>
+
+  </div>
+
+
+  <div class="detail-spec">
+
+    <strong>
+      ${proyecto.habitaciones}
+    </strong>
+
+    <span>
+      Habitaciones
+    </span>
+
+  </div>
+
+
+  <div class="detail-spec">
+
+    <strong>
+      ${proyecto.banos}
+    </strong>
+
+    <span>
+      Baños
+    </span>
+
+  </div>
+
+
+  <div class="detail-spec">
+
+    <strong>
+      ${proyecto.ubicacion}
+    </strong>
+
+    <span>
+      Ubicación
+    </span>
+
+  </div>
+
+`;
+
+</script>
+
+</body>
+
+</html>

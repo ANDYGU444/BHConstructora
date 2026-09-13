@@ -1,0 +1,535 @@
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Detalle del bono | BH Constructora</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  >
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <div class="container nav-wrap">
+
+    <a class="brand" href="index.html">
+
+      <span class="brand-mark">BH</span>
+
+      <span class="brand-text">
+
+        <strong>CONSTRUCTORA</strong>
+
+        <small>
+          HACEMOS REALIDAD TUS PROYECTOS
+        </small>
+
+      </span>
+
+    </a>
+
+
+    <button
+      class="menu-toggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      type="button"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+
+    <nav class="main-nav">
+
+      <a href="index.html">Inicio</a>
+
+      <a
+        href="bonos.html"
+        class="active"
+      >
+        Bonos
+      </a>
+
+      <a href="servicios.html">Servicios</a>
+
+      <a href="proyectos.html">Proyectos</a>
+
+      <a href="nosotros.html">Nosotros</a>
+
+      <a
+        href="contacto.html"
+        class="nav-cta"
+      >
+        Contáctanos
+        <span>↗</span>
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+<section class="section" style="padding-top:150px;">
+
+  <div class="container">
+
+    <div class="breadcrumb">
+
+      <a href="index.html">
+        Inicio
+      </a>
+
+      <span>›</span>
+
+      <a href="bonos.html">
+        Bonos
+      </a>
+
+      <span>›</span>
+
+      <strong id="breadcrumb-name">
+        Detalle
+      </strong>
+
+    </div>
+
+
+    <div
+      id="bono-detail"
+      class="detail-grid"
+    >
+
+      <!-- JavaScript cargará el contenido -->
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section bg-light">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div>
+
+        <p class="eyebrow dark">
+
+          <span></span>
+
+          MATERIALES
+
+        </p>
+
+        <h2>
+          ¿Qué incluye
+          <em>este modelo?</em>
+        </h2>
+
+      </div>
+
+      <p>
+        Esta información es una referencia
+        y debe sustituirse por las especificaciones
+        oficiales de cada bono.
+      </p>
+
+    </div>
+
+
+    <div
+      id="materials"
+      class="material-list"
+    >
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section section-dark">
+
+  <div
+    class="container"
+    style="text-align:center;max-width:850px;"
+  >
+
+    <p class="eyebrow" style="justify-content:center;">
+
+      <span></span>
+
+      ¿TE INTERESA ESTE MODELO?
+
+    </p>
+
+    <h2>
+      Hablemos sobre
+      <em>tu proyecto.</em>
+    </h2>
+
+    <p
+      style="color:rgba(255,255,255,.65);margin:25px auto 30px;"
+    >
+      Solicita información sobre este modelo
+      y cuéntanos qué necesitas.
+    </p>
+
+    <a
+      id="contact-bono"
+      href="contacto.html"
+      class="btn btn-gold"
+    >
+      Solicitar información
+      <span>→</span>
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="container footer-top">
+
+    <div>
+
+      <a class="brand" href="index.html">
+
+        <span class="brand-mark">BH</span>
+
+        <span class="brand-text">
+
+          <strong>CONSTRUCTORA</strong>
+
+          <small>
+            HACEMOS REALIDAD TUS PROYECTOS
+          </small>
+
+        </span>
+
+      </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h3>Navegación</h3>
+
+      <a href="index.html">Inicio</a>
+      <a href="bonos.html">Bonos</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="nosotros.html">Nosotros</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h3>Contacto</h3>
+
+      <a href="tel:+50627710636">
+        2771-0636
+      </a>
+
+      <a href="mailto:contacto@bhconstructora.com">
+        contacto@bhconstructora.com
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="container footer-bottom">
+
+    <span>
+      © <span data-year>2026</span>
+      BH Constructora.
+    </span>
+
+    <span>
+      San Isidro de El General, Costa Rica
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+
+<script>
+
+const bonosDetalle = [
+
+  {
+    id: 1,
+    nombre: "Bono Modelo Familiar",
+    categoria: "Familiar",
+    imagen: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90",
+    descripcion: "Modelo de vivienda pensado para familias que buscan una distribución práctica, funcional y cómoda.",
+    metros: "45 m²",
+    habitaciones: "2",
+    banos: "1",
+    materiales: [
+      "Bloques de concreto",
+      "Estructura de acero",
+      "Cubierta de techo",
+      "Piso cerámico",
+      "Puertas",
+      "Ventanas",
+      "Instalación eléctrica",
+      "Instalación sanitaria"
+    ]
+  },
+
+  {
+    id: 2,
+    nombre: "Bono Modelo Ampliado",
+    categoria: "Familiar",
+    imagen: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90",
+    descripcion: "Una alternativa con mayor espacio interior para familias que requieren una distribución más amplia.",
+    metros: "60 m²",
+    habitaciones: "3",
+    banos: "1",
+    materiales: [
+      "Bloques de concreto",
+      "Estructura metálica",
+      "Techo",
+      "Piso cerámico",
+      "Puertas",
+      "Ventanas",
+      "Instalación eléctrica",
+      "Instalación sanitaria"
+    ]
+  },
+
+  {
+    id: 3,
+    nombre: "Bono Modelo Esencial",
+    categoria: "Esencial",
+    imagen: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=90",
+    descripcion: "Modelo compacto diseñado para aprovechar eficientemente cada espacio de la vivienda.",
+    metros: "42 m²",
+    habitaciones: "2",
+    banos: "1",
+    materiales: [
+      "Bloques de concreto",
+      "Estructura metálica",
+      "Cubierta de techo",
+      "Piso",
+      "Puertas",
+      "Ventanas",
+      "Instalación eléctrica",
+      "Instalación sanitaria"
+    ]
+  }
+
+];
+
+
+const params =
+  new URLSearchParams(window.location.search);
+
+const id =
+  Number(params.get("id")) || 1;
+
+const bono =
+  bonosDetalle.find(item => item.id === id)
+  || bonosDetalle[0];
+
+
+document.title =
+  bono.nombre + " | BH Constructora";
+
+
+document.querySelector(
+  "#breadcrumb-name"
+).textContent =
+  bono.nombre;
+
+
+document.querySelector(
+  "#bono-detail"
+).innerHTML = `
+
+  <div class="detail-image reveal">
+
+    <img
+      src="${bono.imagen}"
+      alt="${bono.nombre}"
+    >
+
+  </div>
+
+
+  <div class="detail-content reveal">
+
+    <p class="eyebrow">
+
+      <span></span>
+
+      ${bono.categoria.toUpperCase()}
+
+    </p>
+
+    <h1>
+      ${bono.nombre}
+    </h1>
+
+    <p class="detail-description">
+      ${bono.descripcion}
+    </p>
+
+
+    <div class="detail-specs">
+
+      <div class="detail-spec">
+
+        <strong>
+          ${bono.metros}
+        </strong>
+
+        <span>
+          Área aproximada
+        </span>
+
+      </div>
+
+
+      <div class="detail-spec">
+
+        <strong>
+          ${bono.habitaciones}
+        </strong>
+
+        <span>
+          Habitaciones
+        </span>
+
+      </div>
+
+
+      <div class="detail-spec">
+
+        <strong>
+          ${bono.banos}
+        </strong>
+
+        <span>
+          Baño(s)
+        </span>
+
+      </div>
+
+
+      <div class="detail-spec">
+
+        <strong>
+          Consultar
+        </strong>
+
+        <span>
+          Información
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="contacto.html"
+      class="btn btn-gold"
+      id="detail-contact-button"
+    >
+      Quiero información
+      <span>→</span>
+    </a>
+
+  </div>
+
+`;
+
+
+document.querySelector(
+  "#materials"
+).innerHTML =
+  bono.materiales
+    .map(material => `
+      <div class="material-item">
+        ✓ ${material}
+      </div>
+    `)
+    .join("");
+
+
+document.querySelector(
+  "#contact-bono"
+).addEventListener(
+  "click",
+  () => {
+
+    localStorage.setItem(
+      "bh_bono_interes",
+      bono.nombre
+    );
+
+  }
+);
+
+
+document.querySelector(
+  "#detail-contact-button"
+).addEventListener(
+  "click",
+  () => {
+
+    localStorage.setItem(
+      "bh_bono_interes",
+      bono.nombre
+    );
+
+  }
+);
+
+</script>
+
+</body>
+
+</html>
