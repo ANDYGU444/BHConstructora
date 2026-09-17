@@ -1,284 +1,304 @@
 /* =========================================================
    BH CONSTRUCTORA
-   JAVASCRIPT GENERAL
+   SCRIPT GENERAL
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-  /* =======================================================
-     MENÚ MÓVIL
-     ======================================================= */
+/* =========================================================
+   MENÚ MÓVIL
+   ========================================================= */
 
-  const menuButton = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".main-nav");
+const menuButton =
+  document.querySelector(".menu-toggle");
 
-  if (menuButton && nav) {
+const nav =
+  document.querySelector(".main-nav");
 
-    menuButton.addEventListener("click", () => {
 
-      const open = nav.classList.toggle("open");
+menuButton?.addEventListener(
+  "click",
+  () => {
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        open ? "true" : "false"
-      );
+    const abierto =
+      nav.classList.toggle("open");
 
-      menuButton.setAttribute(
-        "aria-label",
-        open ? "Cerrar menú" : "Abrir menú"
-      );
+    menuButton.setAttribute(
+      "aria-expanded",
+      abierto
+    );
 
-      document.body.classList.toggle("no-scroll", open);
-    });
+    menuButton.setAttribute(
+      "aria-label",
+      abierto
+        ? "Cerrar menú"
+        : "Abrir menú"
+    );
 
-    nav.querySelectorAll("a").forEach(link => {
+  }
+);
 
-      link.addEventListener("click", () => {
 
-        nav.classList.remove("open");
+/* =========================================================
+   CERRAR MENÚ AL SELECCIONAR
+   ========================================================= */
 
-        menuButton.setAttribute(
+document
+  .querySelectorAll(".main-nav a")
+  .forEach(link => {
+
+    link.addEventListener(
+      "click",
+      () => {
+
+        nav?.classList.remove("open");
+
+        menuButton?.setAttribute(
           "aria-expanded",
           "false"
         );
 
-        menuButton.setAttribute(
-          "aria-label",
-          "Abrir menú"
-        );
-
-        document.body.classList.remove("no-scroll");
-      });
-
-    });
-  }
-
-
-  /* =======================================================
-     HEADER AL HACER SCROLL
-     ======================================================= */
-
-  const header = document.querySelector(".site-header");
-
-  if (header) {
-
-    const updateHeader = () => {
-
-      header.classList.toggle(
-        "scrolled",
-        window.scrollY > 30
-      );
-
-    };
-
-    updateHeader();
-
-    window.addEventListener(
-      "scroll",
-      updateHeader,
-      { passive: true }
+      }
     );
-  }
-
-
-  /* =======================================================
-     AÑO AUTOMÁTICO
-     ======================================================= */
-
-  document.querySelectorAll("[data-year]").forEach(element => {
-
-    element.textContent = new Date().getFullYear();
 
   });
 
 
-  /* =======================================================
-     SCROLL REVEAL
-     ======================================================= */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-  const revealElements =
-    document.querySelectorAll(".reveal");
+const header =
+  document.querySelector(".site-header");
 
-  if ("IntersectionObserver" in window) {
 
-    const observer =
-      new IntersectionObserver(
-        entries => {
+function actualizarHeader() {
 
-          entries.forEach(entry => {
+  if (!header) {
+    return;
+  }
 
-            if (entry.isIntersecting) {
+  if (window.scrollY > 30) {
 
-              entry.target.classList.add("visible");
-
-              observer.unobserve(entry.target);
-
-            }
-
-          });
-
-        },
-        {
-          threshold: 0.12
-        }
-      );
-
-    revealElements.forEach(element => {
-      observer.observe(element);
-    });
+    header.classList.add(
+      "scrolled"
+    );
 
   } else {
 
-    revealElements.forEach(element => {
-      element.classList.add("visible");
-    });
-
-  }
-
-
-  /* =======================================================
-     FORMULARIO DE CONTACTO
-     ======================================================= */
-
-  const contactForm =
-    document.querySelector("#contact-form");
-
-  if (contactForm) {
-
-    contactForm.addEventListener(
-      "submit",
-      event => {
-
-        event.preventDefault();
-
-        const button =
-          contactForm.querySelector("button[type='submit']");
-
-        const message =
-          contactForm.querySelector(".form-message");
-
-        const originalText =
-          button ? button.innerHTML : "";
-
-        if (button) {
-
-          button.disabled = true;
-
-          button.innerHTML =
-            "Preparando consulta...";
-        }
-
-        setTimeout(() => {
-
-          if (message) {
-
-            message.textContent =
-              "Consulta preparada correctamente. En la siguiente etapa conectaremos este formulario con WhatsApp, correo o una base de datos.";
-
-            message.classList.add("show");
-          }
-
-          if (button) {
-
-            button.disabled = false;
-
-            button.innerHTML =
-              originalText;
-          }
-
-          contactForm.reset();
-
-        }, 700);
-
-      }
+    header.classList.remove(
+      "scrolled"
     );
+
+  }
+
+}
+
+
+window.addEventListener(
+  "scroll",
+  actualizarHeader,
+  {
+    passive: true
+  }
+);
+
+
+actualizarHeader();
+
+
+/* =========================================================
+   AÑO AUTOMÁTICO
+   ========================================================= */
+
+document
+  .querySelectorAll("[data-year]")
+  .forEach(element => {
+
+    element.textContent =
+      new Date().getFullYear();
+
+  });
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+function activarReveal() {
+
+  const elementos =
+    document.querySelectorAll(
+      ".reveal:not(.reveal-ready)"
+    );
+
+
+  if (!elementos.length) {
+    return;
   }
 
 
-  /* =======================================================
-     BOTONES "CONSULTAR BONO"
-     ======================================================= */
+  elementos.forEach(elemento => {
 
-  document
-    .querySelectorAll("[data-bono]")
-    .forEach(button => {
+    elemento.classList.add(
+      "reveal-ready"
+    );
 
-      button.addEventListener("click", () => {
+  });
 
-        const bono =
-          button.getAttribute("data-bono");
 
-        localStorage.setItem(
-          "bh_bono_interes",
-          bono
+  if (
+    !("IntersectionObserver" in window)
+  ) {
+
+    elementos.forEach(
+      elemento =>
+        elemento.classList.add(
+          "visible"
+        )
+    );
+
+    return;
+
+  }
+
+
+  const observer =
+    new IntersectionObserver(
+      entradas => {
+
+        entradas.forEach(
+          entrada => {
+
+            if (
+              entrada.isIntersecting
+            ) {
+
+              entrada.target.classList.add(
+                "visible"
+              );
+
+              observer.unobserve(
+                entrada.target
+              );
+
+            }
+
+          }
         );
 
-      });
+      },
+      {
+        threshold: 0.12
+      }
+    );
 
-    });
+
+  elementos.forEach(
+    elemento =>
+      observer.observe(elemento)
+  );
+
+}
 
 
-  /* =======================================================
-     CARGAR BONO SELECCIONADO EN CONTACTO
-     ======================================================= */
+document.addEventListener(
+  "DOMContentLoaded",
+  activarReveal
+);
 
-  const bonoSelect =
-    document.querySelector("#service");
 
-  const savedBono =
-    localStorage.getItem("bh_bono_interes");
+/* =========================================================
+   FORMULARIO DE CONTACTO
+   ========================================================= */
 
-  if (bonoSelect && savedBono) {
+const contactForm =
+  document.querySelector(
+    "#contact-form"
+  );
 
-    const option =
-      [...bonoSelect.options].find(
-        item => item.value === savedBono
+
+contactForm?.addEventListener(
+  "submit",
+  event => {
+
+    event.preventDefault();
+
+
+    const button =
+      contactForm.querySelector(
+        "button[type='submit']"
       );
 
-    if (option) {
 
-      bonoSelect.value =
-        savedBono;
+    const message =
+      contactForm.querySelector(
+        ".form-message"
+      );
+
+
+    if (button) {
+
+      const original =
+        button.innerHTML;
+
+      button.innerHTML =
+        "Consulta preparada ✓";
+
+      button.disabled = true;
+
+
+      setTimeout(
+        () => {
+
+          button.innerHTML =
+            original;
+
+          button.disabled =
+            false;
+
+        },
+        2500
+      );
+
     }
 
-    localStorage.removeItem(
-      "bh_bono_interes"
-    );
+
+    if (message) {
+
+      message.textContent =
+        "Gracias. Puedes continuar la conversación directamente por WhatsApp.";
+
+      message.classList.add(
+        "show"
+      );
+
+    }
+
   }
+);
 
 
-  /* =======================================================
-     SMOOTH SCROLL
-     ======================================================= */
+/* =========================================================
+   WHATSAPP GENERAL
+   ========================================================= */
 
-  document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(link => {
+function abrirWhatsApp(mensaje) {
 
-      link.addEventListener("click", event => {
+  const numero =
+    "50662005747";
 
-        const targetId =
-          link.getAttribute("href");
 
-        if (!targetId || targetId === "#") {
-          return;
-        }
+  const url =
+    "https://wa.me/" +
+    numero +
+    "?text=" +
+    encodeURIComponent(mensaje);
 
-        const target =
-          document.querySelector(targetId);
 
-        if (!target) {
-          return;
-        }
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
 
-        event.preventDefault();
-
-        target.scrollIntoView({
-          behavior: "smooth"
-        });
-
-      });
-
-    });
-
-});
+}

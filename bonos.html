@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -11,10 +12,12 @@
 
   <meta
     name="description"
-    content="Conoce los modelos y bonos de vivienda de BH Constructora."
+    content="Conoce las opciones de bonos de vivienda de BH Constructora."
   >
 
-  <title>Bonos de vivienda | BH Constructora</title>
+  <title>
+    Bonos de vivienda | BH Constructora
+  </title>
 
   <link
     rel="preconnect"
@@ -39,19 +42,28 @@
 
 </head>
 
+
 <body>
+
 
 <header class="site-header">
 
   <div class="container nav-wrap">
 
-    <a class="brand" href="index.html">
+    <a
+      class="brand"
+      href="index.html"
+    >
 
-      <span class="brand-mark">BH</span>
+      <span class="brand-mark">
+        BH
+      </span>
 
       <span class="brand-text">
 
-        <strong>CONSTRUCTORA</strong>
+        <strong>
+          CONSTRUCTORA
+        </strong>
 
         <small>
           HACEMOS REALIDAD TUS PROYECTOS
@@ -64,9 +76,9 @@
 
     <button
       class="menu-toggle"
+      type="button"
       aria-label="Abrir menú"
       aria-expanded="false"
-      type="button"
     >
 
       <span></span>
@@ -118,9 +130,14 @@
 
 <main>
 
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
 <section class="page-hero">
 
-  <div class="page-hero-image"></div>
+  <div class="page-hero-image bonos-hero"></div>
 
   <div class="container page-hero-content">
 
@@ -132,15 +149,24 @@
 
     </p>
 
+
     <h1>
-      Encuentra una opción
-      <em>para tu familia.</em>
+
+      ¿Qué situación describe mejor
+
+      <em>
+        tu caso?
+      </em>
+
     </h1>
 
+
     <p>
-      Explora nuestros modelos de referencia,
-      revisa sus características y conoce
-      los materiales asociados a cada opción.
+
+      Conoce las diferentes opciones de bono
+      y encuentra la alternativa que más se
+      acerca a tu situación.
+
     </p>
 
   </div>
@@ -148,9 +174,14 @@
 </section>
 
 
+<!-- =====================================================
+     CATÁLOGO
+     ===================================================== -->
+
 <section class="section bonos-section">
 
   <div class="container">
+
 
     <div class="breadcrumb">
 
@@ -167,14 +198,60 @@
     </div>
 
 
+    <div class="section-heading">
+
+      <div>
+
+        <p class="eyebrow dark">
+
+          <span></span>
+
+          OPCIONES DISPONIBLES
+
+        </p>
+
+        <h2>
+
+          Encuentra la opción
+
+          <em>
+            para tu situación.
+          </em>
+
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        No necesitas conocer el nombre del bono.
+        Busca la situación que más se parezca
+        a la tuya y conoce sus características.
+
+      </p>
+
+    </div>
+
+
+    <!-- FILTROS -->
+
     <div class="filters">
 
-      <input
-        id="bono-search"
-        type="search"
-        placeholder="Buscar modelo de bono..."
-        aria-label="Buscar bono"
-      >
+      <div class="filter-search">
+
+        <span>
+          🔎
+        </span>
+
+        <input
+          id="bono-search"
+          type="search"
+          placeholder="Buscar por situación, bono o necesidad..."
+          aria-label="Buscar bonos"
+        >
+
+      </div>
 
 
       <select
@@ -183,33 +260,39 @@
       >
 
         <option value="todos">
-          Todas las categorías
+          Todas las opciones
         </option>
 
-        <option value="Familiar">
-          Familiar
+        <option value="Bono de vivienda">
+          Bono de vivienda
         </option>
 
-        <option value="Esencial">
-          Esencial
+        <option value="Financiamiento">
+          Financiamiento
         </option>
 
-        <option value="Confort">
-          Confort
+        <option value="Clase media">
+          Clase media
         </option>
 
-        <option value="Compacto">
-          Compacto
+        <option value="Alta necesidad habitacional">
+          Alta necesidad habitacional
         </option>
 
-        <option value="Especial">
-          Especial
+        <option value="Adulto mayor">
+          Adulto mayor
+        </option>
+
+        <option value="Reparación">
+          Reparación / RAMT
         </option>
 
       </select>
 
     </div>
 
+
+    <!-- TARJETAS -->
 
     <div
       id="bonos-container"
@@ -220,17 +303,29 @@
 
     <div
       id="bonos-empty"
-      style="display:none;text-align:center;padding:60px 20px;"
+      class="empty-state"
     >
 
+      <div class="empty-icon">
+        ?
+      </div>
+
       <h3>
-        No encontramos bonos
+        No encontramos una opción
       </h3>
 
-      <p style="color:var(--muted);margin-top:10px;">
-        Intenta cambiar el término de búsqueda
-        o seleccionar otra categoría.
+      <p>
+        Intenta con otro término de búsqueda
+        o consulta directamente con BH Constructora.
       </p>
+
+      <a
+        href="contacto.html"
+        class="btn btn-gold"
+      >
+        Solicitar orientación
+        <span>→</span>
+      </a>
 
     </div>
 
@@ -239,37 +334,198 @@
 </section>
 
 
+<!-- =====================================================
+     PROMOCIONES
+     ===================================================== -->
+
+<section class="section promotions-section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div>
+
+        <p class="eyebrow dark">
+
+          <span></span>
+
+          BENEFICIOS
+
+        </p>
+
+        <h2>
+
+          Promociones
+
+          <em>
+            BH Constructora.
+          </em>
+
+        </h2>
+
+      </div>
+
+      <p>
+        Las promociones están sujetas a las
+        condiciones y restricciones correspondientes.
+      </p>
+
+    </div>
+
+
+    <div class="promotion-grid">
+
+
+      <article class="promotion-card promotion-gold reveal">
+
+        <span class="promotion-icon">
+          🎁
+        </span>
+
+        <span class="promotion-label">
+          BONO ART. 59
+        </span>
+
+        <h3>
+          REGALÍAS
+        </h3>
+
+        <p>
+          Para esta modalidad se contempla una
+          promoción que puede incluir beneficios
+          adicionales.
+        </p>
+
+        <ul>
+
+          <li>
+            Medidor eléctrico
+          </li>
+
+          <li>
+            Piso cerámico
+          </li>
+
+          <li>
+            Cielo raso PVC
+          </li>
+
+          <li>
+            Avalúo*
+          </li>
+
+        </ul>
+
+        <small>
+          *El avalúo está sujeto a las condiciones
+          específicas del caso.
+        </small>
+
+      </article>
+
+
+      <article class="promotion-card promotion-blue reveal">
+
+        <span class="promotion-icon">
+          ₡
+        </span>
+
+        <span class="promotion-label">
+          OTROS TIPOS DE BONO
+        </span>
+
+        <h3>
+          ₡0 GASTOS*
+        </h3>
+
+        <p>
+          La promoción contempla determinados
+          gastos asociados al proceso.
+        </p>
+
+        <ul>
+
+          <li>
+            Avalúo
+          </li>
+
+          <li>
+            Formalización
+          </li>
+
+          <li>
+            Pólizas del INS
+          </li>
+
+          <li>
+            Permisos de construcción
+          </li>
+
+          <li>
+            Otros documentos o gastos según el caso
+          </li>
+
+        </ul>
+
+        <small>
+          *Promoción sujeta a condiciones y restricciones.
+        </small>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
 <section class="section section-dark">
 
   <div
-    class="container"
-    style="text-align:center;max-width:800px;"
+    class="container cta-centered"
   >
 
-    <p class="eyebrow" style="justify-content:center;">
+    <p class="eyebrow">
+
       <span></span>
-      ¿NECESITAS ORIENTACIÓN?
+
+      ¿NO SABES CUÁL ES EL TUYO?
+
     </p>
+
 
     <h2>
-      Estamos para ayudarte
-      <em>a elegir.</em>
+
+      Cuéntanos tu situación.
+
+      <em>
+        Nosotros te orientamos.
+      </em>
+
     </h2>
 
-    <p
-      style="color:rgba(255,255,255,.65);margin:25px auto 30px;"
-    >
-      Si tienes dudas sobre alguno de nuestros
-      modelos, puedes contactarnos y conversar
-      sobre tu proyecto.
+
+    <p>
+      No necesitas conocer la terminología.
+      Explícanos qué necesitas y podremos conversar
+      sobre las opciones disponibles.
     </p>
 
+
     <a
-      href="contacto.html"
+      href="https://wa.me/+50662005747?text=Hola%20BH%20Constructora.%20No%20sé%20qué%20tipo%20de%20bono%20me%20corresponde%20y%20deseo%20orientación."
+      target="_blank"
+      rel="noopener noreferrer"
       class="btn btn-gold"
     >
-      Solicitar información
-      <span>→</span>
+      Hablar por WhatsApp
+      <span>↗</span>
     </a>
 
   </div>
@@ -279,16 +535,20 @@
 </main>
 
 
+<!-- WHATSAPP -->
+
 <a
   class="whatsapp-float"
-  href="https://wa.me/50600000000?text=Hola%20BH%20Constructora%2C%20deseo%20informaci%C3%B3n%20sobre%20los%20bonos%20de%20vivienda."
+  href="https://wa.me/+50662005747?text=Hola%20BH%20Constructora.%20Deseo%20información%20sobre%20los%20bonos%20de%20vivienda."
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="WhatsApp"
+  aria-label="Contactar por WhatsApp"
 >
   ☎
 </a>
 
+
+<!-- FOOTER -->
 
 <footer class="footer">
 
@@ -296,13 +556,20 @@
 
     <div>
 
-      <a class="brand" href="index.html">
+      <a
+        class="brand"
+        href="index.html"
+      >
 
-        <span class="brand-mark">BH</span>
+        <span class="brand-mark">
+          BH
+        </span>
 
         <span class="brand-text">
 
-          <strong>CONSTRUCTORA</strong>
+          <strong>
+            CONSTRUCTORA
+          </strong>
 
           <small>
             HACEMOS REALIDAD TUS PROYECTOS
@@ -312,28 +579,52 @@
 
       </a>
 
-    </div>
-
-
-    <div class="footer-column">
-
-      <h3>Navegación</h3>
-
-      <a href="index.html">Inicio</a>
-      <a href="bonos.html">Bonos</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="proyectos.html">Proyectos</a>
-      <a href="nosotros.html">Nosotros</a>
+      <p class="footer-brand-description">
+        Soluciones de vivienda, construcción,
+        diseño y asesoría para hacer realidad
+        tus proyectos.
+      </p>
 
     </div>
 
 
     <div class="footer-column">
 
-      <h3>Contacto</h3>
+      <h3>
+        Navegación
+      </h3>
 
-      <a href="tel:+50627710636">
-        2771-0636
+      <a href="index.html">
+        Inicio
+      </a>
+
+      <a href="bonos.html">
+        Bonos
+      </a>
+
+      <a href="servicios.html">
+        Servicios
+      </a>
+
+      <a href="proyectos.html">
+        Proyectos
+      </a>
+
+      <a href="nosotros.html">
+        Nosotros
+      </a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h3>
+        Contacto
+      </h3>
+
+      <a href="tel:+50662005747">
+        6200-5747
       </a>
 
       <a href="mailto:contacto@bhconstructora.com">
@@ -354,8 +645,9 @@
   <div class="container footer-bottom">
 
     <span>
-      © <span data-year>2026</span>
-      BH Constructora.
+      © <span data-year></span>
+      ArkTek.
+      Todos los derechos reservados.
     </span>
 
     <span>
@@ -368,7 +660,9 @@
 
 
 <script src="js/script.js"></script>
+
 <script src="js/bonos.js"></script>
+
 
 </body>
 
