@@ -112,10 +112,13 @@ const bonos = [
       "El Bono Crédito combina el beneficio de vivienda con un esquema de financiamiento. La posibilidad y condiciones del financiamiento dependen del análisis correspondiente.",
 
     imagen:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90",
-
+      "img/bono-credito-1.jpeg",
     imagenes: [
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90",
+      "img/bono-credito-1.jpeg",
+      "img/bono-credito-2.jpeg",
+      "img/bono-credito-3.jpeg",
+      "img/bono-credito-4.jpeg"
+
         /*"NO QUITAR ESTA NOTA"
         Agregar mas imagenes carrusel 
         lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
