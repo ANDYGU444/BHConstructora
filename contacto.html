@@ -137,291 +137,219 @@
 </section>
 
 
-<section class="contact section-dark">
+<!-- =========================================================
+     NUEVO FORMULARIO DETALLADO DE REQUISITOS (BONO VIVIENDA)
+     ========================================================= -->
+<section class="contact section-dark" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 80px;">
 
   <div class="container contact-grid">
 
-
     <div>
-
       <p class="eyebrow">
-
         <span></span>
-
-        CONTÁCTANOS
-
+        EVALUACIÓN
       </p>
-
       <h2>
-        Estamos listos para
-        <em>escucharte.</em>
+        Formulario de
+        <em>Solicitud Detallada.</em>
       </h2>
-
       <p class="contact-description">
-
-        Cuéntanos qué necesitas, qué tipo de
-        proyecto tienes en mente y cómo podemos
-        ayudarte.
-
+        Complete este expediente si desea iniciar un estudio pormenorizado para la aplicación al Bono de Vivienda.
       </p>
-
-
-      <div class="contact-data">
-
-        <a href="tel:+50662005747">
-
-          <small>
-            LLÁMANOS
-          </small>
-
-          <strong>
-            6200-5747
-          </strong>
-
-        </a>
-
-
-        <a href="mailto:contacto@bhconstructora.com">
-
-          <small>
-            ESCRÍBENOS
-          </small>
-
-          <strong>
-            contacto@bhconstructora.com
-          </strong>
-
-        </a>
-
-
-        <div>
-
-          <small>
-            UBICACIÓN
-          </small>
-
-          <strong>
-            San Isidro de El General
-          </strong>
-
-        </div>
-
-      </div>
-
     </div>
 
+    <form class="contact-form" id="formulario-bono-detallado">
 
-    <form
-      class="contact-form"
-      id="contact-form"
-    >
-
-      <label>
-
-        Nombre completo
-
-        <input
-          required
-          type="text"
-          name="name"
-          placeholder="Tu nombre"
-        >
-
-      </label>
-
-
-      <label>
-
-        Teléfono
-
-        <input
-          required
-          type="tel"
-          name="phone"
-          placeholder="+506 6200 5747"
-        >
-
-      </label>
-
-
-      <label>
-
-        Correo electrónico
-
-        <input
-          type="email"
-          name="email"
-          placeholder="correo@ejemplo.com"
-        >
-
-      </label>
-
-
-      <label>
-
-        Provincia
-
-        <select name="province">
-
-          <option value="">
-            Seleccionar
-          </option>
-
-          <option>
-            San José
-          </option>
-
-          <option>
-            Alajuela
-          </option>
-
-          <option>
-            Cartago
-          </option>
-
-          <option>
-            Heredia
-          </option>
-
-          <option>
-            Guanacaste
-          </option>
-
-          <option>
-            Puntarenas
-          </option>
-
-          <option>
-            Limón
-          </option>
-
+      <label class="full">
+        ¿Aplica para Bono Indígena?
+        <select id="bono-indigena" name="bono_indigena" required>
+          <option value="NO" selected>NO</option>
+          <option value="SI">SI</option>
         </select>
-
       </label>
+
+      <label>
+        Nombre completo del jefe de núcleo
+        <input type="text" id="nombre-jefe" name="nombre_jefe" placeholder="Nombre completo" required>
+      </label>
+
+      <label>
+        Cédula del jefe de núcleo
+        <input type="text" id="cedula-jefe" name="cedula_jefe" placeholder="Ej: 1-0123-0456" required>
+      </label>
+
+      <label class="full">
+        Estado Civil
+        <select id="estado-civil" name="estado_civil" required>
+          <option value="">Seleccionar estado civil</option>
+          <option value="Soltero">Soltero (a)</option>
+          <option value="Casado">Casado (a)</option>
+          <option value="Union Libre">Unión libre</option>
+          <option value="Divorciado">Divorciado (a)</option>
+          <option value="Viudo">Viudo (a)</option>
+        </select>
+      </label>
+
+      <label>
+        ¿En qué trabaja?
+        <input type="text" id="trabajo-jefe" name="trabajo_jefe" placeholder="Ocupación actual" required>
+      </label>
+
+      <label>
+        Ingresos mensuales
+        <input type="text" id="ingresos-jefe" name="ingresos_jefe" placeholder="Monto estimado en colones" required>
+      </label>
+
+
+      <!-- =========================================================
+           BLOQUES CONDICIONALES INTERNOS (JavaScript)
+           ========================================================= -->
+
+      <!-- Contenedor dinámico para Casados o Unión Libre -->
+      <div id="bloque-conyuge" class="full" style="display: none; width: 100%;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%;">
+          <label style="width: 100%;">
+            Nombre completo del cónyugue
+            <input type="text" id="nombre-conyuge" name="nombre_conyuge" placeholder="Nombre completo">
+          </label>
+          <label style="width: 100%;">
+            Cédula del cónyugue
+            <input type="text" id="cedula-conyuge" name="cedula_conyuge" placeholder="Número de identificación">
+          </label>
+        </div>
+      </div>
+
+      <!-- Contenedor dinámico para Solteros, Divorciados o Viudos -->
+      <div id="bloque-segundo-beneficiario" class="full" style="display: none; width: 100%;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%;">
+          <label style="width: 100%;">
+            Nombre completo del segundo beneficiario
+            <input type="text" id="nombre-segundo" name="nombre_segundo" placeholder="Nombre completo">
+          </label>
+          <label style="width: 100%;">
+            Cédula del segundo beneficiario
+            <input type="text" id="cedula-segundo" name="cedula_segundo" placeholder="Número de identificación">
+          </label>
+        </div>
+      </div>
+
+
+      <label>
+        Teléfono de contacto
+        <input type="tel" id="telefono-1" name="telefono_1" placeholder="Número principal" required>
+      </label>
+
+      <label>
+        Segundo Teléfono de contacto
+        <input type="tel" id="telefono-2" name="telefono_2" placeholder="Número secundario u opcional">
+      </label>
+
+      <label class="full">
+        ¿Tiene lote propio?
+        <select id="lote-propio" name="lote_propio" required>
+          <option value="">Seleccionar</option>
+          <option value="SI">Sí</option>
+          <option value="NO">No</option>
+        </select>
+      </label>
+
+      <label class="full">
+        Dirección donde vive
+        <textarea id="direccion-vive" name="direccion_vive" rows="3" placeholder="Provincia, Cantón, Distrito y señas detalladas..." required></textarea>
+      </label>
+
+      <label class="full">
+        Dirección donde va a construir
+        <textarea id="direccion-construye" name="direccion_construye" rows="3" placeholder="Ubicación exacta del lote de destino..." required></textarea>
+      </label>
+
+      <!-- Cantidad de miembros del núcleo familiar (1 al 10) -->
+      <label class="full">
+        ¿Con cuántos miembros cuenta el núcleo familiar?
+        <select id="cantidad-miembros" name="cantidad_miembros" required>
+          <option value="">Seleccionar cantidad</option>
+          <option value="1">1 persona</option>
+          <option value="2">2 personas</option>
+          <option value="3">3 personas</option>
+          <option value="4">4 personas</option>
+          <option value="5">5 personas</option>
+          <option value="6">6 personas</option>
+          <option value="7">7 personas</option>
+          <option value="8">8 personas</option>
+          <option value="9">9 personas</option>
+          <option value="10">10 personas</option>
+        </select>
+      </label>
+
+      <!-- Contenedor dinámico donde se inyectarán las preguntas por cada miembro de familia -->
+      <div id="contenedor-miembros-dinamico" class="full" style="width: 100%;"></div>
 
 
       <label class="full">
-
-        ¿En qué podemos ayudarte?
-
-        <select
-          name="service"
-          id="service"
-        >
-
-          <option value="">
-            Seleccionar servicio
-          </option>
-
-          <option value="Asesoría de vivienda">
-            Asesoría de vivienda
-          </option>
-
-          <option value="Construcción">
-            Construcción
-          </option>
-
-          <option value="Diseño y planificación">
-            Diseño y planificación
-          </option>
-
-          <option value="Permisos y trámites">
-            Permisos y trámites
-          </option>
-
-          <option value="Bono Modelo Familiar">
-            Bono Modelo Familiar
-          </option>
-
-          <option value="Bono Modelo Ampliado">
-            Bono Modelo Ampliado
-          </option>
-
-          <option value="Bono Modelo Esencial">
-            Bono Modelo Esencial
-          </option>
-
-          <option value="Otro">
-            Otro
-          </option>
-
+        ¿Hay alguna persona con discapacidad?
+        <select id="discapacidad" name="discapacidad" required>
+          <option value="NO" selected>No</option>
+          <option value="SI">Sí</option>
         </select>
-
       </label>
-
 
       <label class="full">
-
-        ¿Ya tienes terreno?
-
-        <select name="terrain">
-
-          <option value="">
-            Seleccionar
-          </option>
-
-          <option>
-            Sí
-          </option>
-
-          <option>
-            No
-          </option>
-
-          <option>
-            Estoy evaluándolo
-          </option>
-
-        </select>
-
+        Nombre y cédula de todos los miembros del núcleo familiar para el bono
+        <textarea id="miembros-familia" name="miembros_familia" rows="4" placeholder="Describa a los demás integrantes del grupo familiar..." required></textarea>
       </label>
-
 
       <label class="full">
-
-        Mensaje
-
-        <textarea
-          name="message"
-          rows="5"
-          placeholder="Cuéntanos brevemente sobre tu proyecto..."
-        ></textarea>
-
+        ¿Hay alguna persona con discapacidad?
+        <select id="discapacidad" name="discapacidad" required>
+          <option value="NO" selected>No</option>
+          <option value="SI">Sí</option>
+        </select>
       </label>
 
+      <!-- Contenedor dinámico: Derecho de posesión (Solo si marca Bono Indígena) -->
+      <div id="bloque-derecho-posesion" class="full" style="display: none; width: 100%;">
+        <label class="full">
+          ¿Tiene derecho de posesión? (Aplica únicamente para zona indígena)
+          <select id="derecho-posesion" name="derecho_posesion">
+            <option value="">Seleccionar</option>
+            <option value="SI">Sí</option>
+            <option value="NO">No</option>
+          </select>
+        </label>
+      </div>
 
-      <button
-        class="btn btn-gold"
-        type="submit"
-      >
+      <label>
+        ¿Tiene disponibilidad de agua?
+        <select id="disponibilidad-agua" name="disponibilidad_agua" required>
+          <option value="">Seleccionar</option>
+          <option value="SI">Sí</option>
+          <option value="NO">No</option>
+        </select>
+      </label>
 
-        Enviar consulta
+      <label>
+        ¿El lote está frente a calle pública?
+        <select id="calle-publica" name="calle_publica" required>
+          <option value="">Seleccionar</option>
+          <option value="SI">Sí</option>
+          <option value="NO">No</option>
+        </select>
+      </label>
 
-        <span>
-          →
-        </span>
+      <label class="full">
+        Nombre de Promotor
+        <input type="text" id="nombre-promotor" name="nombre_promotor" placeholder="Nombre del asesor que le atiende" required>
+      </label>
 
+      <button class="btn btn-gold" type="submit">
+        Enviar Solicitud Detallada
+        <span>→</span>
       </button>
-
-
-      <div
-        class="form-message"
-      ></div>
-
-
-      <p class="form-note">
-
-        Al enviar este formulario aceptas
-        ser contactado por BH Constructora.
-
-      </p>
 
     </form>
 
   </div>
-
 </section>
-
 
 <section class="section bg-light">
 
@@ -656,6 +584,103 @@
 
 
 <script src="js/script.js"></script>
+<!-- =========================================================
+     SCRIPT DE CONTROL DINÁMICO (Lógica de preguntas)
+     ========================================================= -->
+<!-- =========================================================
+     SCRIPT DE CONTROL DINÁMICO CORREGIDO (Estructura Nativa)
+     ========================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  
+  const selectBonoIndigena = document.getElementById("bono-indigena");
+  const selectEstadoCivil = document.getElementById("estado-civil");
+  const selectCantidadMiembros = document.getElementById("cantidad-miembros");
+  
+  const bloqueConyuge = document.getElementById("bloque-conyuge");
+  const bloqueSegundoBeneficiario = document.getElementById("bloque-segundo-beneficiario");
+  const bloqueDerechoPosesion = document.getElementById("bloque-derecho-posesion");
+  const contenedorMiembrosDinamico = document.getElementById("contenedor-miembros-dinamico");
+
+  const inputsConyuge = bloqueConyuge.querySelectorAll("input");
+  const inputsSegundo = bloqueSegundoBeneficiario.querySelectorAll("input");
+  const selectDerecho = document.getElementById("derecho-posesion");
+
+  function evaluarEstadoCivil() {
+    const valor = selectEstadoCivil.value;
+
+    if (valor === "Casado" || valor === "Union Libre") {
+      bloqueConyuge.style.display = "block";
+      bloqueSegundoBeneficiario.style.display = "none";
+      
+      inputsConyuge.forEach(input => input.required = true);
+      inputsSegundo.forEach(input => { input.required = false; input.value = ""; });
+    } 
+    else if (valor === "Soltero" || valor === "Divorciado" || valor === "Viudo") {
+      bloqueConyuge.style.display = "none";
+      bloqueSegundoBeneficiario.style.display = "block";
+      
+      inputsConyuge.forEach(input => { input.required = false; input.value = ""; });
+      inputsSegundo.forEach(input => input.required = true);
+    } 
+    else {
+      bloqueConyuge.style.display = "none";
+      bloqueSegundoBeneficiario.style.display = "none";
+      inputsConyuge.forEach(input => input.required = false);
+      inputsSegundo.forEach(input => { input.required = false; input.value = ""; });
+    }
+  }
+
+  function evaluarBonoIndigena() {
+    if (selectBonoIndigena.value === "SI") {
+      bloqueDerechoPosesion.style.display = "block";
+      selectDerecho.required = true;
+    } else {
+      bloqueDerechoPosesion.style.display = "none";
+      selectDerecho.required = false;
+      selectDerecho.value = "";
+    }
+  }
+
+  // FUNCIÓN CORREGIDA: Genera los campos planos para que hereden el CSS original
+  function generarCamposMiembros() {
+    const cantidad = parseInt(selectCantidadMiembros.value) || 0;
+    contenedorMiembrosDinamico.innerHTML = ""; // Limpia el contenedor
+
+    if (cantidad === 0) return;
+
+    let htmlGenerado = "";
+
+    for (let i = 1; i <= cantidad; i++) {
+      // Usamos exactamente la misma estructura de <label> e <input> de tu formulario original
+      htmlGenerado += `
+        <label class="full" style="color: #c5a880; font-weight: 700; margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">
+          Miembro N° ${i} del Núcleo Familiar
+        </label>
+        
+        <label>
+          Digite nombre completo (Miembro ${i})
+          <input type="text" name="nombre_miembro_${i}" placeholder="Nombre completo" required>
+        </label>
+        
+        <label>
+          Número de cédula (Miembro ${i})
+          <input type="text" name="cedula_miembro_${i}" placeholder="Ej: 1-1111-1111" required>
+        </label>
+      `;
+    }
+
+    // Inyecta el HTML plano directo en el formulario
+    contenedorMiembrosDinamico.innerHTML = htmlGenerado;
+  }
+
+  // Escucha de eventos de cambio
+  selectEstadoCivil.addEventListener("change", evaluarEstadoCivil);
+  selectBonoIndigena.addEventListener("change", evaluarBonoIndigena);
+  selectCantidadMiembros.addEventListener("change", generarCamposMiembros);
+});
+</script>
+
 
 </body>
 

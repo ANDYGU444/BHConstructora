@@ -38,6 +38,13 @@ const bonos = [
     imagen:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90",
 
+    imagenes: [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90",
+        /*"NO QUITAR ESTA NOTA"
+        Agregar mas imagenes carrusel 
+        lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
+    ],
+
     metros: "Consultar",
 
     habitaciones: "Según modelo",
@@ -106,6 +113,14 @@ const bonos = [
 
     imagen:
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90",
+
+    imagenes: [
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90",
+        /*"NO QUITAR ESTA NOTA"
+        Agregar mas imagenes carrusel 
+        lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
+    ],
+
 
     metros: "Consultar",
 
@@ -176,6 +191,14 @@ const bonos = [
     imagen:
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=90",
 
+
+    imagenes: [
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=90",
+        /*"NO QUITAR ESTA NOTA"
+        Agregar mas imagenes carrusel 
+        lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
+    ],
+
     metros: "Consultar",
 
     habitaciones: "Según modelo",
@@ -245,6 +268,13 @@ const bonos = [
     imagen:
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90",
 
+    imagenes: [
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90",
+        /*"NO QUITAR ESTA NOTA"
+        Agregar mas imagenes carrusel 
+        lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
+    ],
+
     metros: "Consultar",
 
     habitaciones: "Según modelo",
@@ -311,8 +341,20 @@ const bonos = [
     descripcion:
       "El Bono Artículo 59 está orientado a personas en condición de alta necesidad habitacional que no cuentan con lote ni vivienda. En los casos correspondientes, la solución puede contemplar lote y vivienda.",
 
-    imagen:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=90",
+    imagen: [
+      "img/bono-art-59-1.jpeg",
+    ],
+
+    imagenes: [
+      "img/bono-art-59-1.jpeg",
+      "img/bono-art-59-2.jpeg",
+        /*"NO QUITAR ESTA NOTA"
+        Agregar mas imagenes carrusel 
+        lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
+    ],
+    
+    /*imagen:
+      "img/bono-art-59-1.jpeg",*/
 
     metros: "Según solución",
 
@@ -408,6 +450,14 @@ const bonos = [
     imagen:
       "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=90",
 
+    imagenes: [
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=90",
+        /*"NO QUITAR ESTA NOTA"
+        Agregar mas imagenes carrusel 
+        lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
+    ],
+
+
     metros: "Consultar",
 
     habitaciones: "Según modelo",
@@ -477,6 +527,14 @@ const bonos = [
 
     imagen:
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90",
+
+    imagenes: [
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90",
+        /*"NO QUITAR ESTA NOTA"
+        Agregar mas imagenes carrusel 
+        lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
+    ],
+
 
     metros: "Según vivienda",
 
@@ -832,13 +890,23 @@ function cargarDetalleBono() {
 
   detail.innerHTML = `
 
-    <div class="detail-image reveal">
-
-      <img
-        src="${bono.imagen}"
-        alt="${bono.nombre}"
-      >
-
+    <!-- NUEVO: Estructura de Carrusel Dinámico -->
+    <div class="detail-image carrusel-container reveal">
+      <div class="carrusel-slides">
+        ${bono.imagenes.map((imgUrl, index) => `
+          <img 
+            src="${imgUrl}" 
+            alt="${bono.nombre} - Vista ${index + 1}" 
+            class="carrusel-slide ${index === 0 ? 'active' : ''}"
+          >
+        `).join('')}
+      </div>
+      
+      <!-- Flechas de navegación (solo se muestran si hay más de 1 imagen) -->
+      ${bono.imagenes.length > 1 ? `
+        <button class="carrusel-btn prev" onclick="cambiarSlide(-1)">❮</button>
+        <button class="carrusel-btn next" onclick="cambiarSlide(1)">❯</button>
+      ` : ''}
     </div>
 
 
@@ -1223,3 +1291,28 @@ document.addEventListener(
 
   }
 );
+
+
+
+/* =========================================================
+   LÓGICA DEL CARRUSEL DE IMÁGENES
+   ========================================================= */
+let slideIndex = 0;
+
+function cambiarSlide(direccion) {
+  const slides = document.querySelectorAll(".carrusel-slide");
+  if (slides.length === 0) return;
+
+  // Oculta la imagen actual
+  slides[slideIndex].classList.remove("active");
+
+  // Calcula la nueva posición
+  slideIndex += direccion;
+
+  // Si llega al final, vuelve al inicio; si va hacia atrás del inicio, va al final
+  if (slideIndex >= slides.length) { slideIndex = 0; }
+  if (slideIndex < 0) { slideIndex = slides.length - 1; }
+
+  // Muestra la nueva imagen
+  slides[slideIndex].classList.add("active");
+}
