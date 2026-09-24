@@ -36,10 +36,11 @@ const bonos = [
       "El Bono Ordinario está pensado para personas que cuentan con su propio lote y desean construir una vivienda en ese terreno. BH Constructora puede orientarte durante las diferentes etapas del proyecto.",
 
     imagen:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90",
+      "img/bono-ordinario-1.jpeg",      
 
     imagenes: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90",
+      "img/bono-ordinario-1.jpeg",
+
         /*"NO QUITAR ESTA NOTA"
         Agregar mas imagenes carrusel 
         lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
