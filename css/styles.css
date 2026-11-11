@@ -3781,3 +3781,25 @@ summary:focus-visible {
 .carrusel-btn.next { right: 15px; }
 
 
+
+
+/* =========================================================
+   LOGO OFICIAL (encabezado y pie de página)
+   ========================================================= */
+
+.brand-logo {
+  display: block;
+  height: 50px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.brand-text strong { color: var(--gold-light); }
+
+.footer .brand-logo { height: 76px; }
+
+.footer .brand { gap: 16px; }
+
+@media (max-width: 760px) {
+  .brand-logo { height: 42px; }
+}
