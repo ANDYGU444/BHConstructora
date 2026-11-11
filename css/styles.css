@@ -524,7 +524,7 @@ h2 strong {
   inset: 0;
 
   background:
-    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=90")
+    url("../img/casas/casa-amarilla-sol.jpg")
     center/cover no-repeat;
 
   transform: scale(1.01);
@@ -732,7 +732,7 @@ h2 strong {
       rgba(7,21,45,.74),
       rgba(7,21,45,.34)
     ),
-    url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1800&q=90")
+    url("../img/casas/casa-verde-campo.jpg")
     center/cover no-repeat;
 }
 
@@ -1751,7 +1751,7 @@ h2 strong {
       rgba(7,21,45,.05),
       rgba(7,21,45,.20)
     ),
-    url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1300&q=90")
+    url("../img/casas/casa-azul-puertas.jpg")
     center/cover no-repeat;
 }
 
@@ -3418,7 +3418,7 @@ summary:focus-visible {
         rgba(7,21,45,.72),
         rgba(7,21,45,.92)
       ),
-      url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=85")
+      url("../img/casas/casa-verde-campo.jpg")
       center/cover no-repeat;
   }
 
