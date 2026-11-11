@@ -72,3 +72,86 @@
     if (e.key === "Escape" && !modal.hidden) closeVideo();
   });
 })();
+
+
+/* =========================================================
+   TETE INTERACTIVA
+   Al tocarla cambia de gesto, rebota y suelta destellos.
+   Solo es un detalle visual: no envía ni guarda nada.
+   ========================================================= */
+
+(function () {
+  "use strict";
+
+  var btn = document.querySelector(".tt-btn");
+  if (!btn) return;
+
+  var faces = Array.prototype.slice.call(btn.querySelectorAll(".tt-face"));
+  var fx = btn.querySelector(".tt-fx");
+  var hint = document.querySelector(".tt-hint");
+  var gestures = ["feliz", "guino", "risa", "amor", "sorpresa", "estrellas", "guino2"];
+  var last = "";
+  var backTimer = null;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var PARTICLES = {
+    amor: ["💛", "❤️", "💛"],
+    estrellas: ["⭐", "✨", "⭐"],
+    risa: ["😄", "✨", "💛"],
+    sorpresa: ["❗", "✨"],
+    def: ["✨", "💛", "⭐"]
+  };
+
+  function show(name) {
+    faces.forEach(function (f) {
+      f.style.display = f.getAttribute("data-face") === name ? "" : "none";
+    });
+  }
+
+  function burst(name) {
+    if (reduce || !fx) return;
+    var set = PARTICLES[name] || PARTICLES.def;
+    for (var i = 0; i < 6; i++) {
+      var p = document.createElement("span");
+      p.className = "tt-p";
+      p.textContent = set[i % set.length];
+      var ang = (-160 + Math.random() * 140) * Math.PI / 180;
+      var dist = 90 + Math.random() * 70;
+      p.style.setProperty("--dx", Math.round(Math.cos(ang) * dist) + "px");
+      p.style.setProperty("--dy", Math.round(Math.sin(ang) * dist) + "px");
+      p.style.setProperty("--rot", Math.round(Math.random() * 60 - 30) + "deg");
+      p.style.animationDelay = (i * 40) + "ms";
+      fx.appendChild(p);
+      setTimeout(function (el) { el.remove(); }, 1400, p);
+    }
+  }
+
+  btn.addEventListener("click", function () {
+    var options = gestures.filter(function (g) { return g !== last; });
+    var name = options[Math.floor(Math.random() * options.length)];
+    last = name;
+    show(name);
+
+    btn.classList.remove("is-boing");
+    void btn.offsetWidth;            // reinicia la animación si tocan seguido
+    btn.classList.add("is-boing");
+    burst(name);
+
+    if (hint) hint.classList.add("is-gone");
+
+    clearTimeout(backTimer);
+    backTimer = setTimeout(function () { show("normal"); }, 1800);
+  });
+
+  /* Parpadeo natural cada pocos segundos */
+  function blink() {
+    var eyes = btn.querySelectorAll(".tt-eyes");
+    Array.prototype.forEach.call(eyes, function (e) {
+      e.classList.remove("is-blink");
+      void e.getBoundingClientRect();
+      e.classList.add("is-blink");
+    });
+    setTimeout(blink, 2500 + Math.random() * 3500);
+  }
+  if (!reduce) setTimeout(blink, 2000);
+})();

@@ -178,13 +178,28 @@
           ¡Hola, pura vida! Soy Tete, tu asesora virtual.
         </p>
 
+        <span class="tt-hint" aria-hidden="true">👆 ¡Tócame!</span>
+
         <div class="tv-tete-circle">
-          <img
-            src="img/tete/tete-feliz.png"
-            alt="Tete, la mascota de BH Constructora"
-            width="600"
-            height="600"
+          <!-- Tete interactiva: al tocarla hace gestos (ver js/tete.js) -->
+          <button
+            type="button"
+            class="tt-btn"
+            aria-label="Toca a Tete, la mascota de BH Constructora"
           >
+            <svg class="tt-svg" viewBox="0 -40 420 440" aria-hidden="true" focusable="false">
+            <ellipse class="tt-shadow" cx="200" cy="384" rx="160" ry="13" fill="#000" opacity=".18"/>
+            <g class="tt-body">
+            <g class="tt-sparks" stroke="#F5BE2E" stroke-width="15" stroke-linecap="round"><path d="M322 52 L334 12"/><path d="M348 92 L384 60"/><path d="M364 134 L408 126"/></g>
+            <path d="M57 228 L200 100 L343 228 L346 338 Q346 368 316 368 L84 368 Q54 368 54 338 Z" fill="#FBFAF6" stroke="#0B2147" stroke-width="17" stroke-linejoin="round"/>
+            <rect x="74" y="78" width="48" height="96" rx="5" fill="#0B2147"/>
+            <path d="M22 226 L200 84 L378 226" fill="none" stroke="#0B2147" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M226 118 L372 235" fill="none" stroke="#F5BE2E" stroke-width="24" stroke-linecap="round"/>
+            <g class="tt-face" data-face="normal" fill="#0B2147" stroke="#0B2147"><g class="tt-eyes"><rect x="135" y="240" width="22" height="52" rx="11"/><rect x="243" y="240" width="22" height="52" rx="11"/></g><path d="M176 310 Q206 338 236 310" fill="none" stroke-width="9" stroke-linecap="round"/></g><g class="tt-face" data-face="feliz" style="display:none" fill="#0B2147" stroke="#0B2147"><path d="M129 272 Q146 248 163 272" fill="none" stroke-width="9" stroke-linecap="round"/><path d="M237 272 Q254 248 271 272" fill="none" stroke-width="9" stroke-linecap="round"/><path d="M178.0 308 Q206 314 234.0 308 Q232.6 331.0 206 333.0 Q179.4 331.0 178.0 308 Z" stroke-width="5" stroke-linejoin="round"/><ellipse cx="206" cy="327.0" rx="12.6" ry="6.5" fill="#E8647A" stroke="none"/><ellipse cx="124" cy="304" rx="15" ry="9" fill="#F5A9B8" opacity=".75" stroke="none"/><ellipse cx="280" cy="304" rx="15" ry="9" fill="#F5A9B8" opacity=".75" stroke="none"/></g><g class="tt-face" data-face="guino" style="display:none" fill="#0B2147" stroke="#0B2147"><g class="tt-eyes"><rect x="135" y="240" width="22" height="52" rx="11"/></g><path d="M238 254 L266 266 L238 278" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M176 310 Q206 342 236 310" fill="none" stroke-width="9" stroke-linecap="round"/></g><g class="tt-face" data-face="risa" style="display:none" fill="#0B2147" stroke="#0B2147"><path d="M129 272 Q146 248 163 272" fill="none" stroke-width="9" stroke-linecap="round"/><path d="M237 272 Q254 248 271 272" fill="none" stroke-width="9" stroke-linecap="round"/><path d="M179.8 308 Q206 314 232.2 308 Q230.9 344.5 206 346.5 Q181.1 344.5 179.8 308 Z" stroke-width="5" stroke-linejoin="round"/><ellipse cx="206" cy="340.5" rx="11.8" ry="8.8" fill="#E8647A" stroke="none"/><ellipse cx="124" cy="304" rx="15" ry="9" fill="#F5A9B8" opacity=".75" stroke="none"/><ellipse cx="280" cy="304" rx="15" ry="9" fill="#F5A9B8" opacity=".75" stroke="none"/></g><g class="tt-face" data-face="amor" style="display:none" fill="#0B2147" stroke="#0B2147"><path transform="translate(146 270) scale(1.25)" d="M0 14 C-22 0 -20 -18 -8 -18 C-3 -18 0 -14 0 -10 C0 -14 3 -18 8 -18 C20 -18 22 0 0 14 Z" fill="#E8476A" stroke="none"/><path transform="translate(254 270) scale(1.25)" d="M0 14 C-22 0 -20 -18 -8 -18 C-3 -18 0 -14 0 -10 C0 -14 3 -18 8 -18 C20 -18 22 0 0 14 Z" fill="#E8476A" stroke="none"/><path d="M176 310 Q206 340 236 310" fill="none" stroke-width="9" stroke-linecap="round"/><ellipse cx="124" cy="304" rx="15" ry="9" fill="#F5A9B8" opacity=".75" stroke="none"/><ellipse cx="280" cy="304" rx="15" ry="9" fill="#F5A9B8" opacity=".75" stroke="none"/></g><g class="tt-face" data-face="sorpresa" style="display:none" fill="#0B2147" stroke="#0B2147"><rect x="133" y="236" width="26" height="60" rx="13"/><rect x="241" y="236" width="26" height="60" rx="13"/><ellipse cx="206" cy="320" rx="13" ry="15"/></g><g class="tt-face" data-face="estrellas" style="display:none" fill="#0B2147" stroke="#0B2147"><path transform="translate(146 266)" d="M0 -20 L6 -6 L20 -6 L9 3 L13 18 L0 9 L-13 18 L-9 3 L-20 -6 L-6 -6 Z" fill="#F5BE2E" stroke="#0B2147" stroke-width="4" stroke-linejoin="round"/><path transform="translate(254 266)" d="M0 -20 L6 -6 L20 -6 L9 3 L13 18 L0 9 L-13 18 L-9 3 L-20 -6 L-6 -6 Z" fill="#F5BE2E" stroke="#0B2147" stroke-width="4" stroke-linejoin="round"/><path d="M178.4 308 Q206 314 233.6 308 Q232.2 334.0 206 336.0 Q179.8 334.0 178.4 308 Z" stroke-width="5" stroke-linejoin="round"/><ellipse cx="206" cy="330.0" rx="12.4" ry="7.0" fill="#E8647A" stroke="none"/></g><g class="tt-face" data-face="guino2" style="display:none" fill="#0B2147" stroke="#0B2147"><path d="M162 254 L134 266 L162 278" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><g class="tt-eyes"><rect x="243" y="240" width="22" height="52" rx="11"/></g><path d="M177.6 308 Q206 314 234.4 308 Q233.0 328.0 206 330.0 Q179.0 328.0 177.6 308 Z" stroke-width="5" stroke-linejoin="round"/><ellipse cx="206" cy="324.0" rx="12.8" ry="6.0" fill="#E8647A" stroke="none"/><ellipse cx="124" cy="304" rx="15" ry="9" fill="#F5A9B8" opacity=".75" stroke="none"/><ellipse cx="280" cy="304" rx="15" ry="9" fill="#F5A9B8" opacity=".75" stroke="none"/></g>
+            </g>
+            </svg>
+            <span class="tt-fx" aria-hidden="true"></span>
+          </button>
         </div>
 
       </div>
