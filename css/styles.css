@@ -3803,3 +3803,24 @@ summary:focus-visible {
 @media (max-width: 760px) {
   .brand-logo { height: 42px; }
 }
+
+
+/* =========================================================
+   VOLANTEO: la imagen se muestra completa, sin recortes
+   ========================================================= */
+
+.volanteo-figure {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.volanteo-figure img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(7, 21, 45, .18);
+}
