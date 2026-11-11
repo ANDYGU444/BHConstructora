@@ -193,11 +193,12 @@ const bonos = [
       "Esta modalidad está orientada a personas que pueden complementar el beneficio de vivienda mediante recursos propios o financiamiento, según los requisitos y condiciones aplicables a cada caso.",
 
     imagen:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=90",
+      "img/casas/casa-verde-frente.jpg",
 
 
     imagenes: [
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=90",
+      "img/casas/casa-verde-frente.jpg",
+      "img/casas/casa-verde-lateral.jpg",
         /*"NO QUITAR ESTA NOTA"
         Agregar mas imagenes carrusel 
         lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
@@ -270,10 +271,11 @@ const bonos = [
       "El Bono Patio contempla situaciones en las que una persona puede desarrollar su vivienda dentro del terreno de un familiar, siempre que se cumplan las condiciones correspondientes.",
 
     imagen:
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90",
+      "img/casas/casa-rosada-lavadero.jpg",
 
     imagenes: [
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90",
+      "img/casas/casa-rosada-lavadero.jpg",
+      "img/casas/casa-rosada-esquina.jpg",
         /*"NO QUITAR ESTA NOTA"
         Agregar mas imagenes carrusel 
         lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
@@ -452,10 +454,10 @@ const bonos = [
       "Esta modalidad está orientada a personas adultas mayores que necesitan una solución habitacional y cumplen con las condiciones correspondientes.",
 
     imagen:
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=90",
+      "img/casas/casa-verde-rampa.jpg",
 
     imagenes: [
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=90",
+      "img/casas/casa-verde-rampa.jpg",
         /*"NO QUITAR ESTA NOTA"
         Agregar mas imagenes carrusel 
         lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
@@ -530,10 +532,11 @@ const bonos = [
       "El Bono de Reparación / RAMT está orientado a intervenir una vivienda existente mediante trabajos de reparación, ampliación, modificación o terminación, según las condiciones correspondientes.",
 
     imagen:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90",
+      "img/casas/casa-durazno.jpg",
 
     imagenes: [
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90",
+      "img/casas/casa-durazno.jpg",
+      "img/casas/casa-azul-lateral.jpg",
         /*"NO QUITAR ESTA NOTA"
         Agregar mas imagenes carrusel 
         lineas referencias: AQUI 845 Y 1251 | STYLES: 3595*/
