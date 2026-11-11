@@ -27,6 +27,11 @@
     href="css/styles.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="css/solicitud.css"
+  >
+
 </head>
 
 
@@ -168,685 +173,422 @@
 
 
 <!-- =========================================================
-     FORMULARIO DETALLADO
+     SOLICITUD (PRE-PREANÁLISIS) EN 5 PASOS
      ========================================================= -->
 
-<section
-  class="contact section-dark"
-  style="
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 80px;
-  "
->
+<section class="sol-section" id="solicitud">
 
-  <div class="container contact-grid">
+  <div class="container sol-grid">
 
 
     <!-- =====================================================
-         INFORMACIÓN
+         COLUMNA IZQUIERDA: INSTRUCCIONES
          ===================================================== -->
 
-    <div>
+    <aside class="sol-guide">
 
       <p class="eyebrow">
-
         <span></span>
-
-        EVALUACIÓN
-
+        SOLICITUD
       </p>
-
-
-       <!--<h2>
-
-        Formulario de
-        <em>Solicitud Detallada.</em>
-
-      </h2>-->
-
 
       <h2>
-        Pasos para completar la
-        <em>Solicitud Detallada.</em>
+        Su casa empieza con
+        <em>5 minutos.</em>
       </h2>
-      <h3>
-        <br>
-        1. Agregre el numero de BH Constructora a sus contactos de WhatsApp: <span style="color: gold;">6286-7675</span><br><br>
-        2. Complete el formulario con la información solicitada.<br><br>
-        3. Revise que todos los datos sean correctos.<br><br>
-        4. Envíe el formulario.<br><br>
-      </h3>
 
-      <p class="contact-description">
-
-        Complete este expediente si desea iniciar
-        un estudio pormenorizado para la aplicación
-        al Bono de Vivienda.
-
+      <p class="sol-guide-lead">
+        Responda unas preguntas sencillas. Al final se crea
+        un PDF con su información y nos lo envía por WhatsApp.
       </p>
 
+      <ol class="sol-steps">
 
-      <p
-        style="
-          margin-top: 20px;
-          color: rgba(255,255,255,0.65);
-          line-height: 1.8;
-          font-size: 0.95rem;
-        "
-      >
+        <li>
+          <span class="sol-step-num">1</span>
+          <div>
+            <strong>Guarde nuestro número</strong>
+            <span class="sol-phone" data-sol-phone>6286-7675</span>
+            <div class="sol-step-actions">
+              <button type="button" class="sol-mini-btn" data-sol-copy>
+                Copiar número
+              </button>
+              <button type="button" class="sol-mini-btn" data-sol-vcard>
+                Guardar contacto
+              </button>
+            </div>
+          </div>
+        </li>
 
-        Al finalizar podrá generar automáticamente
-        un documento PDF con la información
-        proporcionada.
+        <li>
+          <span class="sol-step-num">2</span>
+          <div>
+            <strong>Responda los 5 pasos</strong>
+            <span>Tenga a mano su cédula. No necesita subir documentos.</span>
+          </div>
+        </li>
 
+        <li>
+          <span class="sol-step-num">3</span>
+          <div>
+            <strong>Envíenos su PDF</strong>
+            <span>Toque <b>Enviar por WhatsApp</b>, elija WhatsApp y busque <b>BH Constructora</b>.</span>
+          </div>
+        </li>
+
+      </ol>
+
+
+      <!-- ===================================================
+           VIDEO DE TETE
+           Cuando el video esté listo, reemplace todo el
+           contenido de este div por:
+           <video src="videos/tete-como-llenar-solicitud.mp4"
+                  poster="img/tete/thumb-solicitud.jpg"
+                  controls playsinline preload="none"></video>
+           =================================================== -->
+
+      <div class="sol-video">
+        <img src="img/tete/tete-feliz.png" alt="" width="96" height="96">
+        <div>
+          <strong>Muy pronto: Tete le explica</strong>
+          <span>Un video corto, paso a paso, de cómo llenar esta solicitud.</span>
+        </div>
+      </div>
+
+      <p class="sol-privacy">
+        🔒 Sus datos se usan de forma confidencial y únicamente
+        para evaluar su trámite de Bono de Vivienda.
       </p>
 
-    </div>
-
+    </aside>
 
 
     <!-- =====================================================
-         FORMULARIO
+         COLUMNA DERECHA: FORMULARIO POR PASOS
          ===================================================== -->
 
-    <form
-      class="contact-form"
-      id="formulario-bono-detallado"
-    >
+    <div class="sol-card">
+
+      <div class="sol-progress" aria-hidden="true">
+        <div class="sol-progress-bar"><span data-sol-bar></span></div>
+        <div class="sol-progress-labels">
+          <span>Lote</span><span>Datos</span><span>Familia</span><span>Ingresos</span><span>Final</span>
+        </div>
+      </div>
+
+      <form id="sol-form" novalidate>
+
+        <!-- ================= PASO 1: LOTE ================= -->
+        <fieldset class="sol-step is-active" data-step="1">
+
+          <legend>
+            <small data-sol-count>Paso 1 de 5</small>
+            ¿Tiene un lote para construir?
+          </legend>
+
+          <div class="sol-options sol-options-big" role="radiogroup">
+
+            <label class="sol-option">
+              <input type="radio" name="lote" value="propio" data-req>
+              <span class="sol-option-body">
+                <span class="sol-ico" aria-hidden="true">🏡</span>
+                <strong>Sí, tengo lote propio</strong>
+                <small>Está a mi nombre o al de mi pareja.</small>
+              </span>
+            </label>
+
+            <label class="sol-option">
+              <input type="radio" name="lote" value="buscado">
+              <span class="sol-option-body">
+                <span class="sol-ico" aria-hidden="true">📍</span>
+                <strong>Encontré un lote para comprar</strong>
+                <small>Ya tengo un lote visto (lote buscado).</small>
+              </span>
+            </label>
+
+            <label class="sol-option">
+              <input type="radio" name="lote" value="ninguno">
+              <span class="sol-option-body">
+                <span class="sol-ico" aria-hidden="true">🔎</span>
+                <strong>Todavía no tengo lote</strong>
+                <small>Igual puede enviarnos su solicitud.</small>
+              </span>
+            </label>
+
+          </div>
+
+          <div class="sol-sub" data-show-if="lote:propio,buscado">
+
+            <label class="sol-field">
+              ¿Dónde está el lote?
+              <input type="text" name="lote_ubicacion" placeholder="Ej: La Rita, Guápiles, Pococí" data-req="lote:propio,buscado">
+            </label>
+
+            <div class="sol-field">
+              <span class="sol-q">¿Tiene plano catastrado?</span>
+              <div class="sol-pills">
+                <label><input type="radio" name="plano" value="Sí"><span>Sí</span></label>
+                <label><input type="radio" name="plano" value="No"><span>No</span></label>
+                <label><input type="radio" name="plano" value="No sé"><span>No sé</span></label>
+              </div>
+            </div>
+
+            <div class="sol-field">
+              <span class="sol-q">¿Tiene agua potable cerca?</span>
+              <div class="sol-pills">
+                <label><input type="radio" name="agua" value="Sí"><span>Sí</span></label>
+                <label><input type="radio" name="agua" value="No"><span>No</span></label>
+                <label><input type="radio" name="agua" value="No sé"><span>No sé</span></label>
+              </div>
+            </div>
+
+            <div class="sol-field">
+              <span class="sol-q">¿Está frente a calle pública?</span>
+              <div class="sol-pills">
+                <label><input type="radio" name="calle" value="Sí"><span>Sí</span></label>
+                <label><input type="radio" name="calle" value="No"><span>No</span></label>
+                <label><input type="radio" name="calle" value="No sé"><span>No sé</span></label>
+              </div>
+            </div>
+
+          </div>
+
+        </fieldset>
 
 
-      <!-- ===================================================
-           BONO INDÍGENA
-           =================================================== -->
+        <!-- ================= PASO 2: DATOS ================= -->
+        <fieldset class="sol-step" data-step="2" hidden>
 
-      <label class="full">
+          <legend>
+            <small data-sol-count>Paso 2 de 5</small>
+            Sus datos
+          </legend>
 
-        ¿Aplica para Bono Indígena?
+          <p class="sol-hint">Los datos de la persona que solicita el bono (jefe o jefa de hogar).</p>
 
-        <select
-          id="bono-indigena"
-          name="bono_indigena"
-          required
-        >
-
-          <option
-            value="NO"
-            selected
-          >
-            NO
-          </option>
-
-          <option value="SI">
-            SI
-          </option>
-
-        </select>
-
-      </label>
-
-
-
-      <!-- ===================================================
-           DATOS DEL JEFE DE NÚCLEO
-           =================================================== -->
-
-      <label>
-
-        Nombre completo del jefe de núcleo
-
-        <input
-          type="text"
-          id="nombre-jefe"
-          name="nombre_jefe"
-          placeholder="Nombre completo"
-          required
-        >
-
-      </label>
-
-
-      <label>
-
-        Cédula del jefe de núcleo
-
-        <input
-          type="text"
-          id="cedula-jefe"
-          name="cedula_jefe"
-          placeholder="Ej: 1-0123-0456"
-          required
-        >
-
-      </label>
-
-
-
-      <label class="full">
-
-        Estado Civil
-
-        <select
-          id="estado-civil"
-          name="estado_civil"
-          required
-        >
-
-          <option value="">
-            Seleccionar estado civil
-          </option>
-
-          <option value="Soltero">
-            Soltero (a)
-          </option>
-
-          <option value="Casado">
-            Casado (a)
-          </option>
-
-          <option value="Union Libre">
-            Unión libre
-          </option>
-
-          <option value="Divorciado">
-            Divorciado (a)
-          </option>
-
-          <option value="Viudo">
-            Viudo (a)
-          </option>
-
-        </select>
-
-      </label>
-
-
-
-      <label>
-
-        ¿En qué trabaja?
-
-        <input
-          type="text"
-          id="trabajo-jefe"
-          name="trabajo_jefe"
-          placeholder="Ocupación actual"
-          required
-        >
-
-      </label>
-
-
-
-      <label>
-
-        Ingresos mensuales
-
-        <input
-          type="text"
-          id="ingresos-jefe"
-          name="ingresos_jefe"
-          placeholder="Monto estimado en colones"
-          required
-        >
-
-      </label>
-
-
-
-      <!-- ===================================================
-           CÓNYUGE
-           =================================================== -->
-
-      <div
-        id="bloque-conyuge"
-        class="full"
-        style="
-          display:none;
-          width:100%;
-        "
-      >
-
-        <div
-          style="
-            display:grid;
-            grid-template-columns:
-              repeat(
-                auto-fit,
-                minmax(250px,1fr)
-              );
-            gap:20px;
-            width:100%;
-          "
-        >
-
-          <label style="width:100%;">
-
-            Nombre completo del cónyuge
-
-            <input
-              type="text"
-              id="nombre-conyuge"
-              name="nombre_conyuge"
-              placeholder="Nombre completo"
-            >
-
+          <label class="sol-field">
+            Nombre completo
+            <input type="text" name="nombre" autocomplete="name" placeholder="Nombre y dos apellidos" data-req>
           </label>
 
-
-          <label style="width:100%;">
-
-            Cédula del cónyuge
-
-            <input
-              type="text"
-              id="cedula-conyuge"
-              name="cedula_conyuge"
-              placeholder="Número de identificación"
-            >
-
+          <label class="sol-field">
+            Número de cédula
+            <input type="text" name="cedula" inputmode="numeric" placeholder="Ej: 7-0123-0456" data-req data-cedula>
           </label>
+
+          <label class="sol-field">
+            Teléfono con WhatsApp
+            <input type="tel" name="telefono" inputmode="tel" autocomplete="tel" placeholder="Ej: 8888-1234" data-req data-phone>
+          </label>
+
+          <label class="sol-field">
+            ¿Dónde vive?
+            <input type="text" name="vive" placeholder="Distrito y cantón. Ej: Siquirres, Limón" data-req>
+          </label>
+
+          <div class="sol-field">
+            <span class="sol-q">Estado civil</span>
+            <div class="sol-pills sol-pills-wrap">
+              <label><input type="radio" name="civil" value="Soltero(a)" data-req><span>Soltero(a)</span></label>
+              <label><input type="radio" name="civil" value="Casado(a)"><span>Casado(a)</span></label>
+              <label><input type="radio" name="civil" value="Unión libre"><span>Unión libre</span></label>
+              <label><input type="radio" name="civil" value="Separado(a) / Divorciado(a)"><span>Separado(a) / Divorciado(a)</span></label>
+              <label><input type="radio" name="civil" value="Viudo(a)"><span>Viudo(a)</span></label>
+            </div>
+          </div>
+
+          <div class="sol-sub" data-show-if="civil:Casado(a),Unión libre">
+            <p class="sol-hint">Datos de su pareja (también se revisan en el BANHVI).</p>
+            <label class="sol-field">
+              Nombre completo de su pareja
+              <input type="text" name="pareja_nombre" placeholder="Nombre y dos apellidos" data-req="civil:Casado(a),Unión libre">
+            </label>
+            <label class="sol-field">
+              Cédula de su pareja
+              <input type="text" name="pareja_cedula" inputmode="numeric" placeholder="Ej: 7-0345-0678" data-req="civil:Casado(a),Unión libre" data-cedula>
+            </label>
+          </div>
+
+        </fieldset>
+
+
+        <!-- ================= PASO 3: FAMILIA ================= -->
+        <fieldset class="sol-step" data-step="3" hidden>
+
+          <legend>
+            <small data-sol-count>Paso 3 de 5</small>
+            Su familia
+          </legend>
+
+          <div class="sol-field">
+            <span class="sol-q">¿Cuántas personas vivirían en la casa, contándose usted?</span>
+            <div class="sol-stepper">
+              <button type="button" data-step-dn aria-label="Menos">−</button>
+              <input type="number" name="personas" value="1" min="1" max="15" inputmode="numeric" aria-label="Cantidad de personas">
+              <button type="button" data-step-up aria-label="Más">+</button>
+            </div>
+          </div>
+
+          <div class="sol-field">
+            <span class="sol-q">¿Alguna persona del hogar tiene una discapacidad?</span>
+            <div class="sol-pills">
+              <label><input type="radio" name="discapacidad" value="Sí" data-req><span>Sí</span></label>
+              <label><input type="radio" name="discapacidad" value="No"><span>No</span></label>
+            </div>
+          </div>
+
+          <div class="sol-field">
+            <span class="sol-q">¿Vive con usted algún adulto mayor (65 años o más)?</span>
+            <div class="sol-pills">
+              <label><input type="radio" name="adulto_mayor" value="Sí" data-req><span>Sí</span></label>
+              <label><input type="radio" name="adulto_mayor" value="No"><span>No</span></label>
+            </div>
+          </div>
+
+          <div class="sol-field">
+            <span class="sol-q">¿El lote o su casa están en un territorio indígena?</span>
+            <div class="sol-pills">
+              <label><input type="radio" name="indigena" value="Sí" data-req><span>Sí</span></label>
+              <label><input type="radio" name="indigena" value="No"><span>No</span></label>
+            </div>
+          </div>
+
+        </fieldset>
+
+
+        <!-- ================= PASO 4: INGRESOS ================= -->
+        <fieldset class="sol-step" data-step="4" hidden>
+
+          <legend>
+            <small data-sol-count>Paso 4 de 5</small>
+            Sus ingresos
+          </legend>
+
+          <div class="sol-field">
+            <span class="sol-q">¿De dónde vienen sus ingresos?</span>
+            <div class="sol-options">
+              <label class="sol-option sol-option-row">
+                <input type="radio" name="fuente" value="Asalariado(a)" data-req>
+                <span class="sol-option-body"><span class="sol-ico" aria-hidden="true">🏢</span><strong>Trabajo para un patrono</strong><small>Me pagan un salario.</small></span>
+              </label>
+              <label class="sol-option sol-option-row">
+                <input type="radio" name="fuente" value="Independiente">
+                <span class="sol-option-body"><span class="sol-ico" aria-hidden="true">🛠️</span><strong>Trabajo por mi cuenta</strong><small>Negocio propio, ventas, oficios…</small></span>
+              </label>
+              <label class="sol-option sol-option-row">
+                <input type="radio" name="fuente" value="Pensionado(a)">
+                <span class="sol-option-body"><span class="sol-ico" aria-hidden="true">📄</span><strong>Recibo una pensión</strong><small>Por vejez, invalidez u otra.</small></span>
+              </label>
+            </div>
+          </div>
+
+          <label class="sol-field" data-show-if="fuente:Asalariado(a)">
+            ¿Para quién trabaja? (patrono)
+            <input type="text" name="patrono" placeholder="Ej: MEP, una finca, un comercio…">
+          </label>
+
+          <label class="sol-field" data-show-if="fuente:Independiente">
+            ¿A qué se dedica?
+            <input type="text" name="actividad" placeholder="Ej: venta de comidas, construcción…">
+          </label>
+
+          <label class="sol-field">
+            ¿Cuánto gana al mes, aproximadamente?
+            <span class="sol-money"><span>¢</span><input type="text" name="ingreso" inputmode="numeric" placeholder="180.000" data-req data-money></span>
+            <small class="sol-note">Lo que recibe antes de rebajos (bruto). La pensión alimentaria no cuenta.</small>
+          </label>
+
+          <label class="sol-field">
+            ¿Alguien más del hogar aporta ingresos? ¿Cuánto en total?
+            <span class="sol-money"><span>¢</span><input type="text" name="ingreso_otros" inputmode="numeric" placeholder="0" data-money></span>
+            <small class="sol-note">Déjelo en blanco si nadie más aporta.</small>
+          </label>
+
+        </fieldset>
+
+
+        <!-- ================= PASO 5: FINAL ================= -->
+        <fieldset class="sol-step" data-step="5" hidden>
+
+          <legend>
+            <small data-sol-count>Paso 5 de 5</small>
+            Últimas preguntas
+          </legend>
+
+          <div class="sol-field">
+            <span class="sol-q">¿Usted o su pareja han recibido un bono de vivienda antes?</span>
+            <div class="sol-pills sol-pills-wrap">
+              <label><input type="radio" name="bono_previo" value="No" data-req><span>No</span></label>
+              <label><input type="radio" name="bono_previo" value="Sí"><span>Sí</span></label>
+              <label><input type="radio" name="bono_previo" value="No estoy seguro(a)"><span>No estoy seguro(a)</span></label>
+            </div>
+          </div>
+
+          <div class="sol-field">
+            <span class="sol-q">¿Tienen alguna casa o terreno a su nombre (aparte del lote para construir)?</span>
+            <div class="sol-pills">
+              <label><input type="radio" name="propiedades" value="No" data-req><span>No</span></label>
+              <label><input type="radio" name="propiedades" value="Sí"><span>Sí</span></label>
+            </div>
+          </div>
+
+          <div class="sol-review" data-sol-review></div>
+
+          <label class="sol-consent">
+            <input type="checkbox" name="consent" data-req>
+            <span>
+              Declaro que la información es verdadera y autorizo a
+              <strong>BH Constructora</strong> a usarla de forma confidencial,
+              únicamente para evaluar mi trámite de Bono de Vivienda.
+            </span>
+          </label>
+
+        </fieldset>
+
+
+        <!-- ================= LISTO ================= -->
+        <div class="sol-done" data-sol-done hidden>
+
+          <img src="img/tete/tete-guino.png" alt="" width="120" height="120">
+
+          <h3>¡Listo! Su PDF está creado.</h3>
+
+          <p>Ahora envíelo a nuestro WhatsApp para que el equipo lo revise.</p>
+
+          <div class="sol-file" data-sol-file></div>
+
+          <button type="button" class="sol-btn sol-btn-wa" data-sol-share>
+            Enviar por WhatsApp
+          </button>
+
+          <button type="button" class="sol-btn sol-btn-ghost" data-sol-download>
+            Descargar PDF
+          </button>
+
+          <p class="sol-done-help">
+            Al tocar <b>Enviar por WhatsApp</b>, elija <b>WhatsApp</b> y busque
+            <b>BH Constructora</b>. Si está en computadora, el PDF se descarga
+            y se abre WhatsApp para que lo adjunte.
+          </p>
+
+          <button type="button" class="sol-link" data-sol-restart>
+            Llenar otra solicitud
+          </button>
 
         </div>
 
-      </div>
 
+        <p class="sol-error" data-sol-error role="alert" hidden></p>
 
-
-      <!-- ===================================================
-           SEGUNDO BENEFICIARIO
-           =================================================== -->
-
-      <div
-        id="bloque-segundo-beneficiario"
-        class="full"
-        style="
-          display:none;
-          width:100%;
-        "
-      >
-
-        <div
-          style="
-            display:grid;
-            grid-template-columns:
-              repeat(
-                auto-fit,
-                minmax(250px,1fr)
-              );
-            gap:20px;
-            width:100%;
-          "
-        >
-
-          <label style="width:100%;">
-
-            Nombre completo del segundo beneficiario
-
-            <input
-              type="text"
-              id="nombre-segundo"
-              name="nombre_segundo"
-              placeholder="Nombre completo"
-            >
-
-          </label>
-
-
-          <label style="width:100%;">
-
-            Cédula del segundo beneficiario
-
-            <input
-              type="text"
-              id="cedula-segundo"
-              name="cedula_segundo"
-              placeholder="Número de identificación"
-            >
-
-          </label>
-
+        <div class="sol-nav" data-sol-nav>
+          <button type="button" class="sol-btn sol-btn-ghost" data-sol-back hidden>← Atrás</button>
+          <button type="button" class="sol-btn sol-btn-primary" data-sol-next>Siguiente →</button>
         </div>
 
-      </div>
+      </form>
 
-
-
-      <!-- ===================================================
-           TELÉFONOS
-           =================================================== -->
-
-      <label>
-
-        Teléfono de contacto
-
-        <input
-          type="tel"
-          id="telefono-1"
-          name="telefono_1"
-          placeholder="Número principal"
-          required
-        >
-
-      </label>
-
-
-      <label>
-
-        Segundo teléfono de contacto
-
-        <input
-          type="tel"
-          id="telefono-2"
-          name="telefono_2"
-          placeholder="Número secundario u opcional"
-        >
-
-      </label>
-
-
-
-      <!-- ===================================================
-           LOTE
-           =================================================== -->
-
-      <label class="full">
-
-        ¿Tiene lote propio?
-
-        <select
-          id="lote-propio"
-          name="lote_propio"
-          required
-        >
-
-          <option value="">
-            Seleccionar
-          </option>
-
-          <option value="SI">
-            Sí
-          </option>
-
-          <option value="NO">
-            No
-          </option>
-
-        </select>
-
-      </label>
-
-
-
-      <!-- ===================================================
-           DIRECCIÓN DONDE VIVE
-           =================================================== -->
-
-      <label class="full">
-
-        Dirección donde vive
-
-        <textarea
-          id="direccion-vive"
-          name="direccion_vive"
-          rows="3"
-          placeholder="Provincia, Cantón, Distrito y señas detalladas..."
-          required
-        ></textarea>
-
-      </label>
-
-
-
-      <!-- ===================================================
-           DIRECCIÓN DONDE CONSTRUYE
-           =================================================== -->
-
-      <label class="full">
-
-        Dirección donde va a construir
-
-        <textarea
-          id="direccion-construye"
-          name="direccion_construye"
-          rows="3"
-          placeholder="Ubicación exacta del lote de destino..."
-          required
-        ></textarea>
-
-      </label>
-
-
-
-      <!-- ===================================================
-           CANTIDAD DE MIEMBROS
-           =================================================== -->
-
-      <label class="full">
-
-        ¿Con cuántos miembros cuenta
-        el núcleo familiar?
-
-        <select
-          id="cantidad-miembros"
-          name="cantidad_miembros"
-          required
-        >
-
-          <option value="">
-            Seleccionar cantidad
-          </option>
-
-          <option value="1">
-            1 persona
-          </option>
-
-          <option value="2">
-            2 personas
-          </option>
-
-          <option value="3">
-            3 personas
-          </option>
-
-          <option value="4">
-            4 personas
-          </option>
-
-          <option value="5">
-            5 personas
-          </option>
-
-          <option value="6">
-            6 personas
-          </option>
-
-          <option value="7">
-            7 personas
-          </option>
-
-          <option value="8">
-            8 personas
-          </option>
-
-          <option value="9">
-            9 personas
-          </option>
-
-          <option value="10">
-            10 personas
-          </option>
-
-        </select>
-
-      </label>
-
-
-
-      <!-- ===================================================
-           MIEMBROS DINÁMICOS
-           =================================================== -->
-
-      <div
-        id="contenedor-miembros-dinamico"
-        class="full"
-        style="width:100%;"
-      ></div>
-
-
-
-      <!-- ===================================================
-           DISCAPACIDAD
-           =================================================== -->
-
-      <label class="full">
-
-        ¿Hay alguna persona con discapacidad?
-
-        <select
-          id="discapacidad"
-          name="discapacidad"
-          required
-        >
-
-          <option
-            value="NO"
-            selected
-          >
-            No
-          </option>
-
-          <option value="SI">
-            Sí
-          </option>
-
-        </select>
-
-      </label>
-
-
-
-      <!-- ===================================================
-           DERECHO DE POSESIÓN
-           =================================================== -->
-
-      <div
-        id="bloque-derecho-posesion"
-        class="full"
-        style="
-          display:none;
-          width:100%;
-        "
-      >
-
-        <label class="full">
-
-          ¿Tiene derecho de posesión?
-          (Aplica únicamente para zona indígena)
-
-          <select
-            id="derecho-posesion"
-            name="derecho_posesion"
-          >
-
-            <option value="">
-              Seleccionar
-            </option>
-
-            <option value="SI">
-              Sí
-            </option>
-
-            <option value="NO">
-              No
-            </option>
-
-          </select>
-
-        </label>
-
-      </div>
-
-
-
-      <!-- ===================================================
-           AGUA / CALLE
-           =================================================== -->
-
-      <label>
-
-        ¿Tiene disponibilidad de agua?
-
-        <select
-          id="disponibilidad-agua"
-          name="disponibilidad_agua"
-          required
-        >
-
-          <option value="">
-            Seleccionar
-          </option>
-
-          <option value="SI">
-            Sí
-          </option>
-
-          <option value="NO">
-            No
-          </option>
-
-        </select>
-
-      </label>
-
-
-
-      <label>
-
-        ¿El lote está frente a calle pública?
-
-        <select
-          id="calle-publica"
-          name="calle_publica"
-          required
-        >
-
-          <option value="">
-            Seleccionar
-          </option>
-
-          <option value="SI">
-            Sí
-          </option>
-
-          <option value="NO">
-            No
-          </option>
-
-        </select>
-
-      </label>
-
-
-
-      <!-- ===================================================
-           BOTÓN
-           =================================================== -->
-
-      <button
-        class="btn btn-gold"
-        type="submit"
-      >
-
-        Enviar Solicitud Detallada
-
-        <span>
-          →
-        </span>
-
-      </button>
-
-
-    </form>
+    </div>
 
   </div>
 
@@ -1158,72 +900,6 @@
 <!-- =========================================================
      MODAL DE TÉRMINOS Y CONDICIONES
      ========================================================= -->
-<style>
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(11, 30, 63, 0.85); /* Color Navy con transparencia */
-    display: none; /* Oculto por defecto */
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-  }
-  .modal-content {
-    background-color: #ffffff;
-    padding: 30px 40px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  }
-  .modal-content h2 {
-    color: #0b1e3f;
-    margin-top: 0;
-    margin-bottom: 15px;
-  }
-  .modal-content p {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
-  }
-  .modal-actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  .btn-secondary {
-    background-color: #e0e0e0;
-    color: #333;
-    border: none;
-    padding: 12px 24px;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  .btn-secondary:hover {
-    background-color: #cccccc;
-  }
-</style>
-
-<div id="modal-terminos" class="modal-overlay">
-  <div class="modal-content">
-    <h2>Términos y Condiciones</h2>
-    <p>
-      Al enviar esta solicitud, usted acepta que los datos personales proporcionados serán recopilados y utilizados por <strong>BH Constructora</strong> de manera estrictamente confidencial, con el único propósito de evaluar la viabilidad de su proyecto y el trámite para el Bono de Vivienda.
-    </p>
-    <div class="modal-actions">
-      <button type="button" id="btn-cancelar-terminos" class="btn btn-secondary">Cancelar</button>
-      <button type="button" id="btn-aceptar-terminos" class="btn btn-gold">Aceptar y Enviar</button>
-    </div>
-  </div>
-</div>
-
 <!-- =========================================================
      JAVASCRIPT GENERAL
      ========================================================= -->
@@ -1240,1917 +916,11 @@
 ></script>
 
 
-
 <!-- =========================================================
-     LÓGICA DEL FORMULARIO + GENERACIÓN DEL PDF
+     SOLICITUD EN 5 PASOS + PDF DE COLOR
      ========================================================= -->
 
-<script>
-
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
-
-
-    /* =======================================================
-       ELEMENTOS
-       ======================================================= */
-
-    const formulario =
-      document.getElementById(
-        "formulario-bono-detallado"
-      );
-
-
-    const selectBonoIndigena =
-      document.getElementById(
-        "bono-indigena"
-      );
-
-
-    const selectEstadoCivil =
-      document.getElementById(
-        "estado-civil"
-      );
-
-
-    const selectCantidadMiembros =
-      document.getElementById(
-        "cantidad-miembros"
-      );
-
-
-    const bloqueConyuge =
-      document.getElementById(
-        "bloque-conyuge"
-      );
-
-
-    const bloqueSegundoBeneficiario =
-      document.getElementById(
-        "bloque-segundo-beneficiario"
-      );
-
-
-    const bloqueDerechoPosesion =
-      document.getElementById(
-        "bloque-derecho-posesion"
-      );
-
-
-    const contenedorMiembrosDinamico =
-      document.getElementById(
-        "contenedor-miembros-dinamico"
-      );
-
-
-    const inputsConyuge =
-      bloqueConyuge.querySelectorAll(
-        "input"
-      );
-
-
-    const inputsSegundo =
-      bloqueSegundoBeneficiario.querySelectorAll(
-        "input"
-      );
-
-
-    const selectDerecho =
-      document.getElementById(
-        "derecho-posesion"
-      );
-
-
-
-    /* =======================================================
-       ESTADO CIVIL
-       ======================================================= */
-
-    function evaluarEstadoCivil() {
-
-      const valor =
-        selectEstadoCivil.value;
-
-
-      if (
-        valor === "Casado" ||
-        valor === "Union Libre"
-      ) {
-
-        bloqueConyuge.style.display =
-          "block";
-
-        bloqueSegundoBeneficiario.style.display =
-          "none";
-
-
-        inputsConyuge.forEach(
-          input => {
-            input.required = true;
-          }
-        );
-
-
-        inputsSegundo.forEach(
-          input => {
-
-            input.required = false;
-
-            input.value = "";
-
-          }
-        );
-
-      }
-
-      else if (
-        valor === "Soltero" ||
-        valor === "Divorciado" ||
-        valor === "Viudo"
-      ) {
-
-        bloqueConyuge.style.display =
-          "none";
-
-        bloqueSegundoBeneficiario.style.display =
-          "block";
-
-
-        inputsConyuge.forEach(
-          input => {
-
-            input.required = false;
-
-            input.value = "";
-
-          }
-        );
-
-
-        inputsSegundo.forEach(
-          input => {
-
-            input.required = true;
-
-          }
-        );
-
-      }
-
-      else {
-
-        bloqueConyuge.style.display =
-          "none";
-
-        bloqueSegundoBeneficiario.style.display =
-          "none";
-
-
-        inputsConyuge.forEach(
-          input => {
-
-            input.required = false;
-
-          }
-        );
-
-
-        inputsSegundo.forEach(
-          input => {
-
-            input.required = false;
-
-            input.value = "";
-
-          }
-        );
-
-      }
-
-    }
-
-
-
-    /* =======================================================
-       BONO INDÍGENA
-       ======================================================= */
-
-    function evaluarBonoIndigena() {
-
-      if (
-        selectBonoIndigena.value ===
-        "SI"
-      ) {
-
-        bloqueDerechoPosesion.style.display =
-          "block";
-
-        selectDerecho.required =
-          true;
-
-      }
-
-      else {
-
-        bloqueDerechoPosesion.style.display =
-          "none";
-
-        selectDerecho.required =
-          false;
-
-        selectDerecho.value =
-          "";
-
-      }
-
-    }
-
-
-
-    /* =======================================================
-       MIEMBROS DINÁMICOS
-       ======================================================= */
-
-    function generarCamposMiembros() {
-
-      const cantidad =
-        parseInt(
-          selectCantidadMiembros.value
-        ) || 0;
-
-
-      contenedorMiembrosDinamico.innerHTML =
-        "";
-
-
-      if (
-        cantidad === 0
-      ) {
-
-        return;
-
-      }
-
-
-      let htmlGenerado =
-        "";
-
-
-      for (
-        let i = 1;
-        i <= cantidad;
-        i++
-      ) {
-
-        htmlGenerado += `
-
-          <label
-            class="full"
-            style="
-              color:#c5a880;
-              font-weight:700;
-              margin-top:15px;
-              margin-bottom:5px;
-              text-transform:uppercase;
-              font-size:0.85rem;
-              letter-spacing:1px;
-            "
-          >
-
-            Miembro N° ${i}
-            del Núcleo Familiar
-
-          </label>
-
-
-          <label>
-
-            Digite nombre completo
-            (Miembro ${i})
-
-            <input
-              type="text"
-              name="nombre_miembro_${i}"
-              placeholder="Nombre completo"
-              required
-            >
-
-          </label>
-
-
-          <label>
-
-            Número de cédula
-            (Miembro ${i})
-
-            <input
-              type="text"
-              name="cedula_miembro_${i}"
-              placeholder="Ej: 1-1111-1111"
-              required
-            >
-
-          </label>
-
-        `;
-
-      }
-
-
-      contenedorMiembrosDinamico.innerHTML =
-        htmlGenerado;
-
-    }
-
-
-
-    /* =======================================================
-       OBTENER VALOR
-       ======================================================= */
-
-    function obtenerValor(
-      id
-    ) {
-
-      const elemento =
-        document.getElementById(id);
-
-
-      if (!elemento) {
-
-        return "";
-
-      }
-
-
-      return elemento.value.trim();
-
-    }
-
-
-
-    /* =======================================================
-       LIMPIAR NOMBRE
-       ======================================================= */
-
-    function limpiarNombreArchivo(
-      nombre
-    ) {
-
-      return nombre
-
-        .normalize("NFD")
-
-        .replace(
-          /[\u0300-\u036f]/g,
-          ""
-        )
-
-        .replace(
-          /[^a-zA-Z0-9]/g,
-          "_"
-        )
-
-        .replace(
-          /_+/g,
-          "_"
-        )
-
-        .substring(
-          0,
-          50
-        );
-
-    }
-
-
-
-    /* =======================================================
-       OBTENER MIEMBROS
-       ======================================================= */
-
-    function obtenerMiembros() {
-
-      const cantidad =
-        parseInt(
-          selectCantidadMiembros.value
-        ) || 0;
-
-
-      const miembros =
-        [];
-
-
-      for (
-        let i = 1;
-        i <= cantidad;
-        i++
-      ) {
-
-        const nombre =
-          document.querySelector(
-            `[name="nombre_miembro_${i}"]`
-          );
-
-
-        const cedula =
-          document.querySelector(
-            `[name="cedula_miembro_${i}"]`
-          );
-
-
-        miembros.push({
-
-          numero: i,
-
-          nombre:
-            nombre
-              ? nombre.value.trim()
-              : "",
-
-          cedula:
-            cedula
-              ? cedula.value.trim()
-              : ""
-
-        });
-
-      }
-
-
-      return miembros;
-
-    }
-
-
-
-    /* =======================================================
-       GENERAR PDF
-       ======================================================= */
-
-    async function generarPDF() {
-
-
-      if (
-        !window.jspdf ||
-        !window.jspdf.jsPDF
-      ) {
-
-        alert(
-          "No fue posible cargar el generador de PDF. " +
-          "Verifique su conexión a Internet e inténtelo nuevamente."
-        );
-
-        return null;
-
-      }
-
-
-      const {
-        jsPDF
-      } = window.jspdf;
-
-
-      const pdf =
-        new jsPDF({
-
-          orientation:
-            "portrait",
-
-          unit:
-            "mm",
-
-          format:
-            "a4"
-
-        });
-
-
-
-      /* =====================================================
-         CONFIGURACIÓN
-         ===================================================== */
-
-      const margen =
-        18;
-
-
-      const anchoPagina =
-        pdf.internal.pageSize.getWidth();
-
-
-      const altoPagina =
-        pdf.internal.pageSize.getHeight();
-
-
-      const anchoContenido =
-        anchoPagina -
-        (margen * 2);
-
-
-      let y =
-        18;
-
-
-
-      /* =====================================================
-         COLORES BH
-         ===================================================== */
-
-      const NAVY =
-        [11, 30, 63];
-
-
-      const GOLD =
-        [212, 175, 55];
-
-
-      const GRIS =
-        [100, 100, 100];
-
-
-      const BLANCO =
-        [255, 255, 255];
-
-
-
-      /* =====================================================
-         ENCABEZADO
-         ===================================================== */
-
-      function encabezadoPrincipal() {
-
-
-        pdf.setFillColor(
-          NAVY[0],
-          NAVY[1],
-          NAVY[2]
-        );
-
-
-        pdf.rect(
-          0,
-          0,
-          anchoPagina,
-          32,
-          "F"
-        );
-
-
-        pdf.setTextColor(
-          BLANCO[0],
-          BLANCO[1],
-          BLANCO[2]
-        );
-
-
-        pdf.setFont(
-          "helvetica",
-          "bold"
-        );
-
-
-        pdf.setFontSize(
-          20
-        );
-
-
-        pdf.text(
-          "BH",
-          margen,
-          14
-        );
-
-
-        pdf.setFontSize(
-          9
-        );
-
-
-        pdf.text(
-          "CONSTRUCTORA",
-          margen,
-          21
-        );
-
-
-        pdf.setFont(
-          "helvetica",
-          "normal"
-        );
-
-
-        pdf.setFontSize(
-          6.5
-        );
-
-
-        pdf.text(
-          "HACEMOS REALIDAD TUS PROYECTOS",
-          margen,
-          26
-        );
-
-
-        pdf.setFontSize(
-          7
-        );
-
-
-        pdf.text(
-          "San Isidro de El General, Perez Zeledon",
-          anchoPagina - margen,
-          13,
-          {
-            align:
-              "right"
-          }
-        );
-
-
-        pdf.text(
-          "Tel: (+506) 6200-5747",
-          anchoPagina - margen,
-          19,
-          {
-            align:
-              "right"
-          }
-        );
-
-
-        pdf.text(
-          "contacto@bhconstructora.com",
-          anchoPagina - margen,
-          25,
-          {
-            align:
-              "right"
-          }
-        );
-
-
-        y =
-          42;
-
-      }
-
-
-
-      /* =====================================================
-         ESPACIO
-         ===================================================== */
-
-      function asegurarEspacio(
-        alturaNecesaria = 20
-      ) {
-
-
-        if (
-          y + alturaNecesaria >
-          altoPagina - 18
-        ) {
-
-
-          agregarPiePagina();
-
-
-          pdf.addPage();
-
-
-          y =
-            18;
-
-
-          return true;
-
-        }
-
-
-        return false;
-
-      }
-
-
-
-      /* =====================================================
-         PIE
-         ===================================================== */
-
-      function agregarPiePagina() {
-
-
-        const pagina =
-          pdf.internal.getNumberOfPages();
-
-
-        pdf.setDrawColor(
-          220,
-          220,
-          220
-        );
-
-
-        pdf.line(
-          margen,
-          altoPagina - 13,
-          anchoPagina - margen,
-          altoPagina - 13
-        );
-
-
-        pdf.setTextColor(
-          130,
-          130,
-          130
-        );
-
-
-        pdf.setFontSize(
-          7
-        );
-
-
-        pdf.text(
-          "BH Constructora - Uso confidencial",
-          margen,
-          altoPagina - 8
-        );
-
-
-        pdf.text(
-          "Pagina " + pagina,
-          anchoPagina - margen,
-          altoPagina - 8,
-          {
-            align:
-              "right"
-          }
-        );
-
-      }
-
-
-
-      /* =====================================================
-         TÍTULO DE SECCIÓN
-         ===================================================== */
-
-      function tituloSeccion(
-        numero,
-        titulo
-      ) {
-
-
-        asegurarEspacio(
-          18
-        );
-
-
-        pdf.setFillColor(
-          NAVY[0],
-          NAVY[1],
-          NAVY[2]
-        );
-
-
-        pdf.rect(
-          margen,
-          y,
-          anchoContenido,
-          9,
-          "F"
-        );
-
-
-        pdf.setTextColor(
-          BLANCO[0],
-          BLANCO[1],
-          BLANCO[2]
-        );
-
-
-        pdf.setFont(
-          "helvetica",
-          "bold"
-        );
-
-
-        pdf.setFontSize(
-          9
-        );
-
-
-        pdf.text(
-          numero +
-          "  " +
-          titulo,
-          margen + 4,
-          y + 6
-        );
-
-
-        y += 14;
-
-      }
-
-
-
-      /* =====================================================
-         CAMPO COMPLETO
-         ===================================================== */
-
-      function campo(
-        etiqueta,
-        valor
-      ) {
-
-
-        const texto =
-          valor ||
-          "No indicado";
-
-
-        const lineas =
-          pdf.splitTextToSize(
-            texto,
-            anchoContenido - 6
-          );
-
-
-        const altura =
-          Math.max(
-            10,
-            lineas.length *
-              4.5 +
-              6
-          );
-
-
-        asegurarEspacio(
-          altura
-        );
-
-
-        pdf.setFillColor(
-          248,
-          248,
-          248
-        );
-
-
-        pdf.rect(
-          margen,
-          y,
-          anchoContenido,
-          altura,
-          "F"
-        );
-
-
-        pdf.setTextColor(
-          GRIS[0],
-          GRIS[1],
-          GRIS[2]
-        );
-
-
-        pdf.setFont(
-          "helvetica",
-          "bold"
-        );
-
-
-        pdf.setFontSize(
-          7
-        );
-
-
-        pdf.text(
-          etiqueta.toUpperCase(),
-          margen + 3,
-          y + 4
-        );
-
-
-        pdf.setTextColor(
-          30,
-          30,
-          30
-        );
-
-
-        pdf.setFont(
-          "helvetica",
-          "normal"
-        );
-
-
-        pdf.setFontSize(
-          8
-        );
-
-
-        pdf.text(
-          lineas,
-          margen + 3,
-          y + 8
-        );
-
-
-        y +=
-          altura + 3;
-
-      }
-
-
-
-      /* =====================================================
-         DOS CAMPOS
-         ===================================================== */
-
-      function dosCampos(
-        etiqueta1,
-        valor1,
-        etiqueta2,
-        valor2
-      ) {
-
-
-        const espacio =
-          4;
-
-
-        const anchoColumna =
-          (
-            anchoContenido -
-            espacio
-          ) / 2;
-
-
-        const lineas1 =
-          pdf.splitTextToSize(
-            valor1 ||
-              "No indicado",
-            anchoColumna - 6
-          );
-
-
-        const lineas2 =
-          pdf.splitTextToSize(
-            valor2 ||
-              "No indicado",
-            anchoColumna - 6
-          );
-
-
-        const altura =
-          Math.max(
-            13,
-            Math.max(
-              lineas1.length,
-              lineas2.length
-            ) *
-              4.5 +
-              9
-          );
-
-
-        asegurarEspacio(
-          altura
-        );
-
-
-        pdf.setFillColor(
-          248,
-          248,
-          248
-        );
-
-
-        pdf.rect(
-          margen,
-          y,
-          anchoColumna,
-          altura,
-          "F"
-        );
-
-
-        pdf.rect(
-          margen +
-            anchoColumna +
-            espacio,
-          y,
-          anchoColumna,
-          altura,
-          "F"
-        );
-
-
-        pdf.setFont(
-          "helvetica",
-          "bold"
-        );
-
-
-        pdf.setFontSize(
-          7
-        );
-
-
-        pdf.setTextColor(
-          GRIS[0],
-          GRIS[1],
-          GRIS[2]
-        );
-
-
-        pdf.text(
-          etiqueta1.toUpperCase(),
-          margen + 3,
-          y + 4
-        );
-
-
-        pdf.text(
-          etiqueta2.toUpperCase(),
-          margen +
-            anchoColumna +
-            espacio +
-            3,
-          y + 4
-        );
-
-
-        pdf.setFont(
-          "helvetica",
-          "normal"
-        );
-
-
-        pdf.setFontSize(
-          8
-        );
-
-
-        pdf.setTextColor(
-          30,
-          30,
-          30
-        );
-
-
-        pdf.text(
-          lineas1,
-          margen + 3,
-          y + 8
-        );
-
-
-        pdf.text(
-          lineas2,
-          margen +
-            anchoColumna +
-            espacio +
-            3,
-          y + 8
-        );
-
-
-        y +=
-          altura + 3;
-
-      }
-
-
-
-      /* =====================================================
-         PÁRRAFO
-         ===================================================== */
-
-      function textoParrafo(
-        texto
-      ) {
-
-
-        const lineas =
-          pdf.splitTextToSize(
-            texto,
-            anchoContenido
-          );
-
-
-        const altura =
-          lineas.length *
-            4.5 +
-          4;
-
-
-        asegurarEspacio(
-          altura
-        );
-
-
-        pdf.setTextColor(
-          40,
-          40,
-          40
-        );
-
-
-        pdf.setFont(
-          "helvetica",
-          "normal"
-        );
-
-
-        pdf.setFontSize(
-          8
-        );
-
-
-        pdf.text(
-          lineas,
-          margen,
-          y
-        );
-
-
-        y +=
-          altura;
-
-      }
-
-
-
-      /* =====================================================
-         CREAR DOCUMENTO
-         ===================================================== */
-
-      encabezadoPrincipal();
-
-
-
-      /* =====================================================
-         TÍTULO
-         ===================================================== */
-
-      pdf.setTextColor(
-        NAVY[0],
-        NAVY[1],
-        NAVY[2]
-      );
-
-
-      pdf.setFont(
-        "helvetica",
-        "bold"
-      );
-
-
-      pdf.setFontSize(
-        16
-      );
-
-
-      pdf.text(
-        "FORMULARIO DE PREANALISIS",
-        margen,
-        y
-      );
-
-
-      y +=
-        7;
-
-
-      pdf.setTextColor(
-        GOLD[0],
-        GOLD[1],
-        GOLD[2]
-      );
-
-
-      pdf.setFontSize(
-        11
-      );
-
-
-      pdf.text(
-        "CONSTRUCTIVO",
-        margen,
-        y
-      );
-
-
-      y +=
-        6;
-
-
-      pdf.setTextColor(
-        90,
-        90,
-        90
-      );
-
-
-      pdf.setFont(
-        "helvetica",
-        "normal"
-      );
-
-
-      pdf.setFontSize(
-        8
-      );
-
-
-      pdf.text(
-        "Documento generado automaticamente desde el formulario web de BH Constructora.",
-        margen,
-        y
-      );
-
-
-      y +=
-        9;
-
-
-
-      /* =====================================================
-         01 - DATOS PERSONALES
-         ===================================================== */
-
-      tituloSeccion(
-        "01",
-        "DATOS PERSONALES DEL SOLICITANTE"
-      );
-
-
-      dosCampos(
-        "Nombre completo",
-        obtenerValor(
-          "nombre-jefe"
-        ),
-        "Cedula",
-        obtenerValor(
-          "cedula-jefe"
-        )
-      );
-
-
-      dosCampos(
-        "Estado civil",
-        obtenerValor(
-          "estado-civil"
-        ),
-        "Ocupacion / Profesion",
-        obtenerValor(
-          "trabajo-jefe"
-        )
-      );
-
-
-      dosCampos(
-        "Telefono principal",
-        obtenerValor(
-          "telefono-1"
-        ),
-        "Telefono adicional",
-        obtenerValor(
-          "telefono-2"
-        )
-      );
-
-
-      campo(
-        "Ingresos mensuales",
-        obtenerValor(
-          "ingresos-jefe"
-        )
-      );
-
-
-
-      /* =====================================================
-         02 - CONDICIONES
-         ===================================================== */
-
-      tituloSeccion(
-        "02",
-        "CONDICIONES DEL SOLICITANTE"
-      );
-
-
-      dosCampos(
-        "Bono Indigena",
-        obtenerValor(
-          "bono-indigena"
-        ),
-        "Lote propio",
-        obtenerValor(
-          "lote-propio"
-        )
-      );
-
-
-      dosCampos(
-        "Discapacidad",
-        obtenerValor(
-          "discapacidad"
-        ),
-        "Cantidad de miembros",
-        obtenerValor(
-          "cantidad-miembros"
-        )
-      );
-
-
-      if (
-        obtenerValor(
-          "bono-indigena"
-        ) === "SI"
-      ) {
-
-        campo(
-          "Derecho de posesion",
-          obtenerValor(
-            "derecho-posesion"
-          )
-        );
-
-      }
-
-
-
-      /* =====================================================
-         03 - CÓNYUGE / BENEFICIARIO
-         ===================================================== */
-
-      const estadoCivil =
-        obtenerValor(
-          "estado-civil"
-        );
-
-
-      if (
-        estadoCivil === "Casado" ||
-        estadoCivil === "Union Libre"
-      ) {
-
-
-        tituloSeccion(
-          "03",
-          "DATOS DEL CONYUGE"
-        );
-
-
-        dosCampos(
-          "Nombre del conyuge",
-          obtenerValor(
-            "nombre-conyuge"
-          ),
-          "Cedula del conyuge",
-          obtenerValor(
-            "cedula-conyuge"
-          )
-        );
-
-      }
-
-
-      else if (
-        estadoCivil === "Soltero" ||
-        estadoCivil === "Divorciado" ||
-        estadoCivil === "Viudo"
-      ) {
-
-
-        tituloSeccion(
-          "03",
-          "SEGUNDO BENEFICIARIO"
-        );
-
-
-        dosCampos(
-          "Nombre del segundo beneficiario",
-          obtenerValor(
-            "nombre-segundo"
-          ),
-          "Cedula",
-          obtenerValor(
-            "cedula-segundo"
-          )
-        );
-
-      }
-
-
-
-      /* =====================================================
-         04 - NÚCLEO FAMILIAR
-         ===================================================== */
-
-      const miembros =
-        obtenerMiembros();
-
-
-      tituloSeccion(
-        "04",
-        "COMPOSICION DEL NUCLEO FAMILIAR"
-      );
-
-
-      if (
-        miembros.length === 0
-      ) {
-
-        textoParrafo(
-          "No se registraron miembros adicionales."
-        );
-
-      }
-
-      else {
-
-        miembros.forEach(
-          miembro => {
-
-            dosCampos(
-              "Miembro " +
-                miembro.numero,
-              miembro.nombre,
-              "Cedula",
-              miembro.cedula
-            );
-
-          }
-        );
-
-      }
-
-
-
-      /* =====================================================
-         05 - PROPIEDAD
-         ===================================================== */
-
-      tituloSeccion(
-        "05",
-        "DETALLES DE LA PROPIEDAD O PROYECTO"
-      );
-
-
-      campo(
-        "Direccion donde vive",
-        obtenerValor(
-          "direccion-vive"
-        )
-      );
-
-
-      campo(
-        "Direccion donde va a construir",
-        obtenerValor(
-          "direccion-construye"
-        )
-      );
-
-
-      dosCampos(
-        "Disponibilidad de agua",
-        obtenerValor(
-          "disponibilidad-agua"
-        ),
-        "Frente a calle publica",
-        obtenerValor(
-          "calle-publica"
-        )
-      );
-
-
-
-      /* =====================================================
-         06 - DECLARACIÓN
-         ===================================================== */
-
-      tituloSeccion(
-        "06",
-        "DECLARACION"
-      );
-
-
-      textoParrafo(
-
-        "Declaro que la informacion proporcionada " +
-        "en este documento es verdadera y autorizo " +
-        "a BH Constructora a utilizar estos datos " +
-        "de manera confidencial exclusivamente para " +
-        "fines de evaluacion y preanalisis de mi " +
-        "proyecto o viabilidad para el Bono de Vivienda."
-
-      );
-
-
-      y +=
-        5;
-
-
-      dosCampos(
-        "Fecha",
-        new Date().toLocaleDateString(
-          "es-CR"
-        ),
-        "Solicitante",
-        obtenerValor(
-          "nombre-jefe"
-        )
-      );
-
-
-
-      /* =====================================================
-         PIE
-         ===================================================== */
-
-      agregarPiePagina();
-
-
-
-      /* =====================================================
-         NOMBRE ARCHIVO
-         ===================================================== */
-
-      const nombreCliente =
-        limpiarNombreArchivo(
-          obtenerValor(
-            "nombre-jefe"
-          ) ||
-          "Solicitud"
-        );
-
-
-      const nombreArchivo =
-        "Solicitud_BH_" +
-        nombreCliente +
-        ".pdf";
-
-
-
-      /* =====================================================
-         BLOB
-         ===================================================== */
-
-      const blob =
-        pdf.output(
-          "blob"
-        );
-
-
-      return {
-
-        pdf:
-          pdf,
-
-        blob:
-          blob,
-
-        nombreArchivo:
-          nombreArchivo
-
-      };
-
-    }
-
-
-
-    /* =======================================================
-       COMPARTIR PDF
-       ======================================================= */
-
-    async function compartirPDF(
-      resultado
-    ) {
-
-
-      if (!resultado) {
-        return;
-      }
-
-
-      const archivo =
-        new File(
-
-          [
-            resultado.blob
-          ],
-
-          resultado.nombreArchivo,
-
-          {
-            type:
-              "application/pdf"
-          }
-
-        );
-
-
-
-      /* =====================================================
-         CELULAR / COMPARTIR NATIVO
-         ===================================================== */
-
-      if (
-        navigator.share &&
-        navigator.canShare
-      ) {
-
-
-        const datosCompartir = {
-
-          files:
-            [
-              archivo
-            ],
-
-          title:
-            "Solicitud BH Constructora",
-
-          text:
-            "Solicitud detallada de " +
-            obtenerValor(
-              "nombre-jefe"
-            ) +
-            " para BH Constructora."
-
-        };
-
-
-        if (
-          navigator.canShare(
-            datosCompartir
-          )
-        ) {
-
-
-          try {
-
-            await navigator.share(
-              datosCompartir
-            );
-
-
-            return;
-
-          }
-
-          catch (error) {
-
-
-            if (
-              error.name ===
-              "AbortError"
-            ) {
-
-              return;
-
-            }
-
-          }
-
-        }
-
-      }
-
-
-
-      /* =====================================================
-         COMPUTADORA
-         ===================================================== */
-
-      const enlace =
-        document.createElement(
-          "a"
-        );
-
-
-      const urlPDF =
-        URL.createObjectURL(
-          resultado.blob
-        );
-
-
-      enlace.href =
-        urlPDF;
-
-
-      enlace.download =
-        resultado.nombreArchivo;
-
-
-      document.body.appendChild(
-        enlace
-      );
-
-
-      enlace.click();
-
-
-      enlace.remove();
-
-
-      setTimeout(
-        () => {
-
-          URL.revokeObjectURL(
-            urlPDF
-          );
-
-        },
-        2000
-      );
-
-
-
-      /* =====================================================
-         WHATSAPP
-         ===================================================== */
-
-      const nombre =
-        obtenerValor(
-          "nombre-jefe"
-        );
-
-
-      const mensaje =
-        "Hola BH Constructora.%0A%0A" +
-
-        "He completado la Solicitud Detallada.%0A" +
-
-        "Solicitante: " +
-
-        encodeURIComponent(
-          nombre
-        ) +
-
-        "%0A%0A" +
-
-        "El PDF de la solicitud fue generado y descargado.%0A" +
-
-        "Lo adjunto a este chat para su revisión.";
-
-
-      const whatsapp =
-        "https://wa.me/50662005747?text=" +
-        mensaje;
-
-
-      setTimeout(
-        () => {
-
-          window.open(
-            whatsapp,
-            "_blank",
-            "noopener,noreferrer"
-          );
-
-        },
-        500
-      );
-
-    }
-
-
-
-    /* =======================================================
-       ENVÍO DEL FORMULARIO
-       ======================================================= */
-
-/* =======================================================
-       ENVÍO DEL FORMULARIO Y MODAL DE TÉRMINOS
-       ======================================================= */
-    const modalTerminos = document.getElementById("modal-terminos");
-    const btnCancelarTerminos = document.getElementById("btn-cancelar-terminos");
-    const btnAceptarTerminos = document.getElementById("btn-aceptar-terminos");
-    
-    let botonSubmitOriginal = null;
-    let textoBotonOriginal = "";
-
-    // 1. Interceptar el envío del formulario
-    formulario.addEventListener(
-      "submit",
-      function(event) {
-        event.preventDefault();
-
-        // Validar campos obligatorios primero
-        if (!formulario.checkValidity()) {
-          formulario.reportValidity();
-          return;
-        }
-
-        // Guardar referencia al botón original y mostrar el modal
-        botonSubmitOriginal = formulario.querySelector("button[type='submit']");
-        textoBotonOriginal = botonSubmitOriginal.innerHTML;
-        
-        modalTerminos.style.display = "flex";
-      }
-    );
-
-    // 2. Acción si el usuario cancela los términos
-    btnCancelarTerminos.addEventListener("click", function() {
-      modalTerminos.style.display = "none";
-    });
-
-    // 3. Acción si el usuario acepta los términos (Generar PDF)
-    btnAceptarTerminos.addEventListener("click", async function() {
-      // Ocultar modal
-      modalTerminos.style.display = "none";
-
-      // Cambiar estado del botón original del formulario
-      botonSubmitOriginal.disabled = true;
-      botonSubmitOriginal.innerHTML = "Generando PDF... <span>⏳</span>";
-
-      try {
-        /* ================================================
-           PDF
-           ================================================ */
-        const resultado = await generarPDF();
-
-        if (!resultado) {
-          botonSubmitOriginal.disabled = false;
-          botonSubmitOriginal.innerHTML = textoBotonOriginal;
-          return;
-        }
-
-        /* ================================================
-           COMPARTIR
-           ================================================ */
-        botonSubmitOriginal.innerHTML = "Preparando solicitud... <span>✓</span>";
-        await compartirPDF(resultado);
-
-        /* ================================================
-           FINAL
-           ================================================ */
-        botonSubmitOriginal.innerHTML = "Solicitud preparada ✓";
-
-        setTimeout(
-          () => {
-            botonSubmitOriginal.disabled = false;
-            botonSubmitOriginal.innerHTML = textoBotonOriginal;
-          },
-          4000
-        );
-
-      } catch (error) {
-        console.error("Error al generar PDF:", error);
-        alert(
-          "Ocurrió un error al generar la solicitud PDF. " +
-          "Por favor inténtelo nuevamente."
-        );
-        botonSubmitOriginal.disabled = false;
-        botonSubmitOriginal.innerHTML = textoBotonOriginal;
-      }
-    });
-
-
-
-    /* =======================================================
-       EVENTOS
-       ======================================================= */
-
-    selectEstadoCivil.addEventListener(
-      "change",
-      evaluarEstadoCivil
-    );
-
-
-    selectBonoIndigena.addEventListener(
-      "change",
-      evaluarBonoIndigena
-    );
-
-
-    selectCantidadMiembros.addEventListener(
-      "change",
-      generarCamposMiembros
-    );
-
-
-
-    /* =======================================================
-       ESTADO INICIAL
-       ======================================================= */
-
-    evaluarEstadoCivil();
-
-    evaluarBonoIndigena();
-
-  }
-);
-
-</script>
+<script src="js/solicitud.js"></script>
 
 
 </body>
