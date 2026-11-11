@@ -485,6 +485,10 @@ body.tv-noscroll { overflow: hidden; }
   background: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;          /* evita el zoom por doble toque en celular */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
   animation: tv-float 4s ease-in-out infinite;
 }
 
@@ -506,7 +510,9 @@ body.tv-noscroll { overflow: hidden; }
   transform-origin: 50% 100%;
 }
 
-.tt-btn:hover .tt-body { transform: scale(1.03); transition: transform .25s var(--ease); }
+@media (hover: hover) {
+  .tt-btn:hover .tt-body { transform: scale(1.03); transition: transform .25s var(--ease); }
+}
 
 .tt-btn.is-boing .tt-body { animation: tt-boing .7s cubic-bezier(.2, .8, .2, 1.2); }
 
