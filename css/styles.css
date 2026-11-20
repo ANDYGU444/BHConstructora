@@ -115,7 +115,7 @@ textarea {
 
   font-family: var(--font-title);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .skip-link:focus {
@@ -212,8 +212,19 @@ h2 em {
   font-style: normal;
 }
 
+/* Pulido Unslop: el dorado se reserva para el título principal (h1).
+   En los h2 la frase conserva el énfasis solo por peso. */
+h2 em {
+  color: inherit;
+}
+
+/* Las secciones oscuras mantienen el contraste correcto */
+.hero-news-title em {
+  color: var(--gold);
+}
+
 h2 strong {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .eyebrow {
@@ -226,11 +237,11 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
-  letter-spacing: .16em;
-  text-transform: uppercase;
+  letter-spacing: .02em;
+  text-transform: none;
 }
 
 .eyebrow span {
@@ -322,7 +333,7 @@ h2 strong {
 
   font-family: var(--font-title);
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 700;
 
   letter-spacing: -.03em;
 
@@ -345,8 +356,8 @@ h2 strong {
   color: var(--white);
 
   font-family: var(--font-title);
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 700;
 
   letter-spacing: .1em;
   line-height: 1.1;
@@ -357,9 +368,9 @@ h2 strong {
 
   color: rgba(255,255,255,.5);
 
-  font-size: 7px;
+  font-size: 10px;
 
-  letter-spacing: .12em;
+  letter-spacing: .02em;
   line-height: 1.2;
 }
 
@@ -386,7 +397,7 @@ h2 strong {
   color: rgba(255,255,255,.72);
 
   font-family: var(--font-title);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
 
   transition:
@@ -669,7 +680,7 @@ h2 strong {
   margin-bottom: 8px;
 
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 700;
 
   letter-spacing: .1em;
 }
@@ -680,7 +691,7 @@ h2 strong {
   color: var(--navy);
 
   font-size: 35px;
-  font-weight: 800;
+  font-weight: 700;
 
   line-height: 1.05;
   letter-spacing: -.015em;
@@ -835,7 +846,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
 }
 
@@ -865,8 +876,8 @@ h2 strong {
   padding: 14px 21px;
 
   font-family: var(--font-title);
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
   letter-spacing: .04em;
 
@@ -933,7 +944,7 @@ h2 strong {
 
   padding: 11px 15px;
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 
@@ -1018,10 +1029,10 @@ h2 strong {
   color: var(--navy);
 
   font-family: var(--font-title);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
-  letter-spacing: .08em;
+  letter-spacing: .02em;
 }
 
 .bono-content {
@@ -1044,7 +1055,7 @@ h2 strong {
 .bono-content p {
   color: var(--muted);
 
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.7;
 }
 
@@ -1079,7 +1090,7 @@ h2 strong {
 .bono-spec span {
   color: var(--muted);
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .bono-content .btn {
@@ -1096,10 +1107,10 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
-  letter-spacing: .12em;
+  letter-spacing: .02em;
 }
 
 .bono-situation {
@@ -1128,13 +1139,13 @@ h2 strong {
   color: var(--navy);
 
   font-family: var(--font-title);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .bono-promo-mini span {
   color: var(--muted);
 
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .bono-promo-mini.cero-gastos {
@@ -1202,10 +1213,10 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
 
-  letter-spacing: .12em;
+  letter-spacing: .02em;
 }
 
 .service-icon {
@@ -1238,7 +1249,7 @@ h2 strong {
 
   color: rgba(255,255,255,.62);
 
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.75;
 }
 
@@ -1253,8 +1264,8 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
   letter-spacing: .04em;
 
@@ -1343,8 +1354,8 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .process-line h3 {
@@ -1360,7 +1371,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -1437,10 +1448,10 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
-  letter-spacing: .12em;
+  letter-spacing: .02em;
 }
 
 .project-info h3 {
@@ -1456,7 +1467,7 @@ h2 strong {
 
   color: rgba(255,255,255,.65);
 
-  font-size: 11px;
+  font-size: 13px;
 }
 
 
@@ -1530,8 +1541,8 @@ h2 strong {
   color: var(--navy);
 
   font-family: var(--font-title);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .project-card-content {
@@ -1542,8 +1553,8 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
   letter-spacing: .1em;
 }
@@ -1559,7 +1570,7 @@ h2 strong {
 .project-card-content p {
   color: var(--muted);
 
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .project-card-specs {
@@ -1583,14 +1594,14 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .project-card-specs strong {
   color: var(--navy);
 
   font-family: var(--font-title);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 
@@ -1637,8 +1648,8 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .value-card h3 {
@@ -1654,7 +1665,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.75;
 }
 
@@ -1699,10 +1710,10 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
-  letter-spacing: .12em;
+  letter-spacing: .02em;
 }
 
 .mvv-card h3 {
@@ -1718,7 +1729,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
 }
 
@@ -1797,13 +1808,13 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .trust-points span {
   color: var(--muted);
 
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -1815,7 +1826,7 @@ h2 strong {
   color: var(--navy);
 
   font-family: var(--font-title);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 
@@ -1864,11 +1875,11 @@ h2 strong {
   color: var(--white);
 
   font-family: var(--font-title);
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
 
   letter-spacing: .1em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 
@@ -1902,7 +1913,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
 }
 
@@ -1922,7 +1933,7 @@ h2 strong {
   color: var(--navy);
 
   font-family: var(--font-title);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
 
   cursor: pointer;
@@ -1964,7 +1975,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
 }
 
@@ -2035,10 +2046,10 @@ h2 strong {
   color: rgba(255,255,255,.45);
 
   font-family: var(--font-title);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
-  letter-spacing: .18em;
+  letter-spacing: .02em;
 }
 
 
@@ -2101,10 +2112,10 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
-  letter-spacing: .12em;
+  letter-spacing: .02em;
 }
 
 .contact-data strong {
@@ -2151,8 +2162,8 @@ h2 strong {
   color: var(--navy);
 
   font-family: var(--font-title);
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
   letter-spacing: .02em;
 }
@@ -2177,7 +2188,7 @@ h2 strong {
   color: var(--ink);
 
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
 
   transition:
@@ -2232,7 +2243,7 @@ h2 strong {
 
   color: var(--navy);
 
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .form-message.show {
@@ -2246,7 +2257,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.6;
 }
 
@@ -2265,8 +2276,8 @@ h2 strong {
   color: var(--navy);
 
   font-family: var(--font-title);
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
   transition:
     gap .25s ease,
@@ -2379,7 +2390,7 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .empty-state h3 {
@@ -2450,10 +2461,10 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
 
-  letter-spacing: .15em;
+  letter-spacing: .02em;
 }
 
 .promotion-card h3 {
@@ -2463,7 +2474,7 @@ h2 strong {
 }
 
 .promotion-card p {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .promotion-card ul {
@@ -2475,7 +2486,7 @@ h2 strong {
 .promotion-card li {
   margin-bottom: 8px;
 
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .promotion-card small {
@@ -2483,7 +2494,7 @@ h2 strong {
 
   opacity: .65;
 
-  font-size: 10px;
+  font-size: 12px;
 }
 
 
@@ -2584,10 +2595,10 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
 
-  letter-spacing: .08em;
+  letter-spacing: .02em;
 }
 
 .detail-specs {
@@ -2619,7 +2630,7 @@ h2 strong {
 .detail-spec span {
   color: var(--muted);
 
-  font-size: 10px;
+  font-size: 12px;
 }
 
 
@@ -2665,7 +2676,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .detail-promo ul {
@@ -2679,7 +2690,7 @@ h2 strong {
 
   color: var(--ink);
 
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .detail-promo small {
@@ -2687,7 +2698,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 
@@ -2720,14 +2731,14 @@ h2 strong {
 
   color: var(--ink);
 
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .feature-item span {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 
@@ -2758,13 +2769,13 @@ h2 strong {
 
   color: var(--ink);
 
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .material-item span {
   color: var(--gold);
 
-  font-weight: 800;
+  font-weight: 700;
 }
 
 
@@ -2796,13 +2807,13 @@ h2 strong {
   color: var(--gold);
 
   font-family: var(--font-title);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .requirement-item span {
   color: var(--ink);
 
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .expenses-list {
@@ -2823,7 +2834,7 @@ h2 strong {
 
   color: var(--white);
 
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .important-notice {
@@ -2842,7 +2853,7 @@ h2 strong {
   color: var(--navy);
 
   font-family: var(--font-title);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .important-notice p {
@@ -2850,7 +2861,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 11px;
+  font-size: 13px;
 }
 
 
@@ -2870,7 +2881,7 @@ h2 strong {
 
   color: var(--muted);
 
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .breadcrumb a {
@@ -2963,7 +2974,7 @@ h2 strong {
 
   color: rgba(255,255,255,.45);
 
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -2977,7 +2988,7 @@ h2 strong {
 
   color: var(--gold);
 
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .footer-column a,
@@ -2988,7 +2999,7 @@ h2 strong {
 
   color: rgba(255,255,255,.55);
 
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.6;
 }
 
@@ -3006,7 +3017,7 @@ h2 strong {
 
   color: rgba(255,255,255,.3);
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 
@@ -3078,7 +3089,7 @@ summary:focus-visible {
   }
 
   .main-nav > a {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .bonos-grid,
@@ -3310,7 +3321,7 @@ summary:focus-visible {
 
     padding: 14px 10px;
 
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .main-nav > a:not(.nav-cta)::after {
@@ -3331,7 +3342,7 @@ summary:focus-visible {
   }
 
   .brand-text strong {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .brand-text small {
@@ -3615,7 +3626,7 @@ summary:focus-visible {
   }
 
   .brand-text strong {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .hero {
@@ -3633,7 +3644,7 @@ summary:focus-visible {
   }
 
   .hero-news-tag {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .hero-news-title {
@@ -3676,7 +3687,7 @@ summary:focus-visible {
   }
 
   .accordion summary {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .quote blockquote {

@@ -345,6 +345,7 @@
   align-items: center;
   justify-content: center;
   font-size: 22px;
+  color: #0b1e3f;
 }
 
 .sol-option-body strong { font-size: 16.5px; color: var(--sol-ink); }
