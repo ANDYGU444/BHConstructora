@@ -16,7 +16,10 @@
     logo: "img/bh-logo-pdf.jpg",
     ingresoMinimo: 60000,             // mínimo aproximado
     topeArt59: 480000,                // tope aproximado del Art. 59 (lote buscado)
-    guardarProgreso: true
+    guardarProgreso: true,
+    // Versión del aviso de privacidad (privacidad.html) y del texto de autorización.
+    // Si cambia cualquiera de los dos, cambie también esta versión.
+    versionAutorizacion: "2026-11"
   };
 
   var form = document.getElementById("sol-form");
@@ -26,6 +29,7 @@
   var step = 1;
   var lastPdf = null;
   var STORE = "bh_solicitud_v1";
+  var consentAt = null;   // momento exacto en que la persona marcó la autorización
 
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
@@ -52,6 +56,18 @@
     }
     if (els.type === "checkbox") return els.checked ? "1" : "";
     return (els.value || "").trim();
+  }
+
+  // Fecha y hora en Costa Rica, con segundos: "20/11/2026 · 12:51:03 p. m."
+  function crTime(dt) {
+    try {
+      var f = new Intl.DateTimeFormat("es-CR", { timeZone: "America/Costa_Rica", day: "2-digit", month: "2-digit",
+        year: "numeric", hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true });
+      var p = {};
+      f.formatToParts(dt).forEach(function (x) { p[x.type] = x.value; });
+      var ap = /p/i.test(p.dayPeriod || "") ? "p. m." : "a. m.";
+      return p.day + "/" + p.month + "/" + p.year + " · " + p.hour + ":" + p.minute + ":" + p.second + " " + ap;
+    } catch (e) { return dt.toLocaleString(); }
   }
 
   function digits(s) { return (s || "").replace(/\D/g, ""); }
@@ -204,6 +220,12 @@
   form.addEventListener("input", function () { save(); });
   form.addEventListener("submit", function (e) { e.preventDefault(); });
 
+  // Registrar el momento exacto de la aceptación (y borrarlo si la desmarca)
+  var consentBox = form.querySelector('input[name="consent"]');
+  if (consentBox) consentBox.addEventListener("change", function () {
+    consentAt = consentBox.checked ? new Date() : null;
+  });
+
   /* -------------------------------------------------------
      GUARDAR PROGRESO (por si la persona sale y vuelve)
      ------------------------------------------------------- */
@@ -275,6 +297,15 @@
     if (d.discapacidad === "Sí") a.push("Persona con discapacidad en el hogar: revisar opción de Bono Especial.");
     if (d.indigena === "Sí") a.push("Territorio indígena: revisar requisitos de Bono Indígena.");
     d.alertas = a;
+
+    var acc = consentAt || new Date();
+    var lbl = consentBox && consentBox.closest("label");
+    d.autorizacion = {
+      texto: lbl ? lbl.textContent.replace(/\s+/g, " ").trim() : "",
+      version: CONFIG.versionAutorizacion,
+      fecha: crTime(acc),
+      iso: acc.toISOString()
+    };
 
     var now = new Date();
     var pad = function (n) { return (n < 10 ? "0" : "") + n; };
@@ -473,22 +504,51 @@
       section("4 · Lote", [["Tipo de lote", "Todavía no tiene lote. Los datos se completan cuando lo encuentre.", 3]]);
     }
 
-    // Declaración y firma
-    y += 1;
-    doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(75, 85, 104);
+    // Constancia de aceptación y firma (un solo recuadro a lo ancho)
+    var A = d.autorizacion, TW = 142, LH = 2.95;
+    doc.setFontSize(7.3);
     var decl = doc.splitTextToSize("Declaro que la información anterior es verdadera y autorizo a BH Constructora a utilizarla " +
       "de forma confidencial, únicamente para evaluar mi trámite de Bono de Vivienda (Ley 8968). Este preanálisis es " +
-      "orientativo: no garantiza la aprobación del bono; BH verifica cada dato con los documentos.", 118);
-    doc.text(decl, M, y + 3);
+      "orientativo: no garantiza la aprobación del bono; BH verifica cada dato con los documentos.", TW);
+    doc.setFont("helvetica", "bold");
+    var reg = doc.splitTextToSize("Aceptada en línea por " + d.nombre + " (cédula " + d.cedula + ") al marcar la casilla de " +
+      "autorización del sitio web de BH Constructora, el " + A.fecha + " (hora de Costa Rica), según el aviso de privacidad versión " +
+      A.version + ". Solicitud " + d.codigo + ".", TW);
+    var boxH = 6 + decl.length * LH + 1 + reg.length * LH + 1.6;
+    // Si no cabe en la primera página, la constancia pasa a una segunda hoja
+    if (y + boxH > H - 12.5) { doc.addPage(); y = M + 4; }
+    doc.setDrawColor.apply(doc, NAVY); doc.setLineWidth(0.3); doc.setFillColor(247, 243, 234);
+    doc.roundedRect(M, y, CW, boxH, 1.5, 1.5, "FD");
+    doc.setFont("helvetica", "bold"); doc.setFontSize(7.3); doc.setTextColor.apply(doc, NAVY);
+    doc.text("CONSTANCIA DE ACEPTACIÓN", M + 3.5, y + 4.4);
+    doc.setFont("helvetica", "normal"); doc.setTextColor(75, 85, 104);
+    doc.text(decl, M + 3.5, y + 8, { lineHeightFactor: 1.15 });
+    doc.setFont("helvetica", "bold"); doc.setTextColor.apply(doc, NAVY);
+    doc.text(reg, M + 3.5, y + 8 + decl.length * LH + 1, { lineHeightFactor: 1.15 });
+    doc.setFont("helvetica", "normal"); doc.setTextColor(75, 85, 104);
     doc.setDrawColor(27, 35, 51); doc.setLineWidth(0.3);
-    doc.line(W - M - 58, y + 12, W - M, y + 12);
-    doc.text("Firma del solicitante", W - M - 29, y + 16, { align: "center" });
+    var sx0 = M + TW + 7, sx1 = W - M - 4, sy = y + boxH - 6.5;
+    doc.line(sx0, sy, sx1, sy);
+    doc.text("Firma del solicitante", (sx0 + sx1) / 2, sy + 3.6, { align: "center" });
 
-    // Pie
-    doc.setFillColor.apply(doc, NAVY); doc.rect(0, H - 11, W, 11, "F");
-    doc.setFontSize(8); doc.setTextColor(255, 255, 255);
-    doc.text(CONFIG.empresa + " · WhatsApp " + CONFIG.telefono, M, H - 4.3);
-    doc.text(d.codigo + " · Autorizado por el solicitante", W - M, H - 4.3, { align: "right" });
+    doc.setProperties({
+      title: "Solicitud de Bono de Vivienda " + d.codigo,
+      subject: "Aceptada en línea el " + A.fecha + " (hora de Costa Rica) · versión " + A.version,
+      author: d.nombre,
+      keywords: "BH Constructora, " + d.codigo + ", autorizacion " + A.iso,
+      creator: "Sitio web de BH Constructora"
+    });
+
+    // Pie (en cada hoja)
+    var pages = doc.getNumberOfPages();
+    for (var pg = 1; pg <= pages; pg++) {
+      doc.setPage(pg);
+      doc.setFillColor.apply(doc, NAVY); doc.rect(0, H - 11, W, 11, "F");
+      doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(255, 255, 255);
+      doc.text(CONFIG.empresa + " · WhatsApp " + CONFIG.telefono, M, H - 4.3);
+      doc.text(d.codigo + " · Autorizado por el solicitante" + (pages > 1 ? " · Hoja " + pg + " de " + pages : ""),
+        W - M, H - 4.3, { align: "right" });
+    }
 
     return doc;
   }
@@ -538,7 +598,9 @@
 
   function waText(d) {
     return (d.tieneLote ? "🟢 CON LOTE" : "⚪ SIN LOTE") + " – " + d.nombre + " (" + d.codigo + ")\n" +
-      "Hola BH Constructora, les envío mi solicitud de Bono de Vivienda.";
+      "Hola BH Constructora, les envío mi solicitud de Bono de Vivienda.\n" +
+      "Confirmo que la información es verdadera y que acepté la autorización de uso de mis datos " +
+      "y el aviso de privacidad (versión " + d.autorizacion.version + ") el " + d.autorizacion.fecha + ".";
   }
 
   $("[data-sol-share]", form).addEventListener("click", function () {
@@ -561,6 +623,7 @@
     form.reset();
     clearSaved();
     lastPdf = null;
+    consentAt = null;
     done.hidden = true;
     nav.hidden = false;
     $(".sol-progress").hidden = false;
