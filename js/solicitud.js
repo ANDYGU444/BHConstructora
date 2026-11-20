@@ -17,8 +17,8 @@
     ingresoMinimo: 60000,             // mínimo aproximado
     topeArt59: 480000,                // tope aproximado del Art. 59 (lote buscado)
     guardarProgreso: true,
-    // Versión del texto de la declaración y autorización. Si cambia el texto
-    // del recuadro de autorización en contacto.html, cambie también esta versión.
+    // Versión del aviso de privacidad (privacidad.html) y del texto de autorización.
+    // Si cambia cualquiera de los dos, cambie también esta versión.
     versionAutorizacion: "2026-11"
   };
 
@@ -512,7 +512,7 @@
       "orientativo: no garantiza la aprobación del bono; BH verifica cada dato con los documentos.", TW);
     doc.setFont("helvetica", "bold");
     var reg = doc.splitTextToSize("Aceptada en línea por " + d.nombre + " (cédula " + d.cedula + ") al marcar la casilla de " +
-      "autorización del sitio web de BH Constructora, el " + A.fecha + " (hora de Costa Rica). Versión del texto: " +
+      "autorización del sitio web de BH Constructora, el " + A.fecha + " (hora de Costa Rica), según el aviso de privacidad versión " +
       A.version + ". Solicitud " + d.codigo + ".", TW);
     var boxH = 6 + decl.length * LH + 1 + reg.length * LH + 1.6;
     // Si no cabe en la primera página, la constancia pasa a una segunda hoja
@@ -600,7 +600,7 @@
     return (d.tieneLote ? "🟢 CON LOTE" : "⚪ SIN LOTE") + " – " + d.nombre + " (" + d.codigo + ")\n" +
       "Hola BH Constructora, les envío mi solicitud de Bono de Vivienda.\n" +
       "Confirmo que la información es verdadera y que acepté la autorización de uso de mis datos " +
-      "(versión " + d.autorizacion.version + ") el " + d.autorizacion.fecha + ".";
+      "y el aviso de privacidad (versión " + d.autorizacion.version + ") el " + d.autorizacion.fecha + ".";
   }
 
   $("[data-sol-share]", form).addEventListener("click", function () {

@@ -692,3 +692,5 @@
   line-height: 1.4;
   color: #6b7486;
 }
+
+.sol-consent-note a { color: var(--navy); font-weight: 600; text-decoration: underline; }
