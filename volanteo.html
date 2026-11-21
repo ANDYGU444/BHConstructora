@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b1e3f">
+<title>Registro de volanteo | BH Constructora</title>
+<link rel="icon" type="image/png" href="img/logo/favicon.png">
+<link rel="apple-touch-icon" href="img/logo/apple-touch-icon.png">
+<style>
+:root{--navy:#0b1e3f;--navy2:#14325c;--yel:#ffd23f;--gold:#f5be2e;--cream:#f7f3ea;--ink:#1b2333;--soft:#5b6577;--line:#e2ddd0;--green:#1e8a4c;--red:#d64545}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+header{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 16px 0}
+.top{display:flex;align-items:center;gap:12px;max-width:720px;margin:0 auto}
+.top img{height:38px}
+.top h1{font-size:17px;margin:0;line-height:1.2}
+.top h1 small{display:block;font-weight:500;color:var(--yel);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+nav{display:flex;gap:4px;max-width:720px;margin:10px auto 0}
+nav button{flex:1;border:0;background:transparent;color:#c9d3e3;font:600 14.5px system-ui,sans-serif;padding:11px 4px 12px;border-bottom:4px solid transparent;cursor:pointer}
+nav button.on{color:#fff;border-bottom-color:var(--yel)}
+nav .badge{display:inline-block;min-width:20px;padding:1px 6px;margin-left:4px;border-radius:10px;background:var(--yel);color:var(--navy);font-size:12px}
+main{max-width:720px;margin:0 auto;padding:16px 16px calc(110px + env(safe-area-inset-bottom))}
+section[hidden]{display:none}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px}
+.card h2{font-size:15px;margin:0 0 12px;color:var(--navy);text-transform:uppercase;letter-spacing:.06em}
+label.f{display:block;font-weight:600;font-size:14.5px;margin:12px 0 6px}
+label.f:first-of-type{margin-top:0}
+label.f em{color:var(--red);font-style:normal}
+label.f span{font-weight:400;color:var(--soft)}
+input[type=text],input[type=tel],select,textarea{width:100%;font:16px system-ui,sans-serif;padding:12px 14px;border:1.5px solid #cfd6e2;border-radius:12px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:3px solid rgba(255,210,63,.6);border-color:var(--navy)}
+textarea{min-height:84px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:block;padding:9px 14px;border-radius:999px;border:1.5px solid #cfd6e2;background:#fff;font-size:14.5px;font-weight:600;color:var(--navy);cursor:pointer;user-select:none}
+.chips input:checked+span{background:var(--navy);border-color:var(--navy);color:var(--yel)}
+.chips input:focus-visible+span{outline:3px solid rgba(255,210,63,.7)}
+.gps{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{border:0;border-radius:14px;padding:13px 18px;font:700 15.5px system-ui,sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn.sec{background:#eef1f6;color:var(--navy)}
+.btn.main{background:var(--green);color:#fff;width:100%;padding:16px;font-size:17px}
+.btn.yel{background:var(--yel);color:var(--navy)}
+.btn.ghost{background:transparent;color:var(--red);padding:8px 10px;font-size:14px}
+.gps small{color:var(--soft)}
+.switch{display:flex;align-items:center;gap:12px;font-weight:600;cursor:pointer}
+.switch input{width:22px;height:22px;accent-color:var(--red)}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:15px;cursor:pointer}
+.consent input{width:24px;height:24px;flex:none;margin-top:1px;accent-color:var(--navy)}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--cream) 30%);z-index:4}
+.bar .in{max-width:720px;margin:0 auto}
+.err{color:var(--red);font-weight:600;font-size:14.5px;margin:0 0 8px;text-align:center}
+.toast{position:fixed;left:50%;top:18px;transform:translate(-50%,-140%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:14px;font-weight:600;z-index:9;transition:transform .3s;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:90vw;text-align:center}
+.toast.on{transform:translate(-50%,0)}
+.rec{background:#fff;border:1px solid var(--line);border-left:6px solid var(--navy);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.rec.urg{border-left-color:var(--red)}
+.rec h3{margin:0;font-size:16.5px}
+.rec p{margin:3px 0;color:var(--soft);font-size:14px}
+.rec .acts{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.rec .acts .btn{padding:8px 12px;font-size:13.5px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:8px;background:#eef1f6;color:var(--navy);margin-right:4px}
+.tag.r{background:#fde8e8;color:var(--red)}
+.tag.g{background:#e3f4ea;color:var(--green)}
+.empty{text-align:center;color:var(--soft);padding:30px 10px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.tools .btn{flex:1}
+.help{font-size:14.5px;color:var(--soft)}
+.help ol{padding-left:20px;margin:8px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+.tw{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff;max-height:55vh}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{background:var(--navy);color:#fff;position:sticky;top:0}
+.stat{display:flex;gap:10px;margin:12px 0}
+.stat div{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.stat b{display:block;font-size:24px;color:var(--navy)}
+.stat span{font-size:12.5px;color:var(--soft)}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <img src="img/logo/bh-logo-blanco.png" alt="BH Constructora">
+    <h1><small>Zona Caribe</small>Registro de volanteo</h1>
+  </div>
+  <nav>
+    <button data-tab="nuevo" class="on">Nuevo</button>
+    <button data-tab="mios">Mis registros<span class="badge" id="nMios">0</span></button>
+    <button data-tab="chat">Para Excel</button>
+  </nav>
+</header>
+
+<main>
+<!-- ============ NUEVO REGISTRO ============ -->
+<section id="nuevo">
+<form id="f" autocomplete="off" novalidate>
+  <div class="card">
+    <h2>Volantero</h2>
+    <label class="f" for="volantero">Su nombre <em>*</em> <span>(se recuerda en este celular)</span></label>
+    <input type="text" id="volantero" name="volantero" placeholder="Ej.: Hermano Pablo" autocomplete="name">
+  </div>
+
+  <div class="card">
+    <h2>Persona interesada</h2>
+    <label class="f" for="nombre">Nombre completo <em>*</em></label>
+    <input type="text" id="nombre" name="nombre" placeholder="Ej.: Mariangel Castillo González" autocapitalize="words">
+    <label class="f" for="tel">Teléfono <em>*</em></label>
+    <input type="tel" id="tel" name="tel" inputmode="numeric" placeholder="8888-8888">
+    <div class="row">
+      <div>
+        <label class="f" for="tel2">Otro teléfono</label>
+        <input type="tel" id="tel2" name="tel2" inputmode="numeric" placeholder="Opcional">
+      </div>
+      <div>
+        <label class="f" for="tel2de">¿De quién?</label>
+        <input type="text" id="tel2de" name="tel2de" placeholder="Ej.: esposo">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Lugar</h2>
+    <label class="f" for="lugar">Pueblo o barrio <em>*</em></label>
+    <input type="text" id="lugar" name="lugar" placeholder="Ej.: 4 Esquinas, Horquetas" autocapitalize="words">
+    <label class="f" for="canton">Cantón <em>*</em></label>
+    <select id="canton" name="canton">
+      <option value="">Elija uno</option>
+      <option>Siquirres</option><option>Guácimo</option><option>Pococí</option><option>Limón</option>
+      <option>Matina</option><option>Talamanca</option><option>Sarapiquí</option><option>Otro</option>
+    </select>
+    <label class="f">Ubicación del lote o la casa <span>(opcional)</span></label>
+    <div class="gps">
+      <button type="button" class="btn sec" id="gpsBtn">📍 Tomar ubicación aquí</button>
+      <small id="gpsTxt">Úselo estando en el lugar.</small>
+    </div>
+    <input type="hidden" id="gps" name="gps">
+  </div>
+
+  <div class="card">
+    <h2>Lote</h2>
+    <label class="f">¿Tiene lote? <em>*</em></label>
+    <div class="chips" data-name="lote">
+      <label><input type="radio" name="lote" value="Propio"><span>Propio</span></label>
+      <label><input type="radio" name="lote" value="De un familiar"><span>De un familiar</span></label>
+      <label><input type="radio" name="lote" value="Traspaso en trámite"><span>Traspaso en trámite</span></label>
+      <label><input type="radio" name="lote" value="Sin lote"><span>Sin lote</span></label>
+      <label><input type="radio" name="lote" value="No sabe"><span>No sabe</span></label>
+    </div>
+    <div class="row" style="margin-top:4px">
+      <div>
+        <label class="f">Plano</label>
+        <div class="chips">
+          <label><input type="radio" name="plano" value="Sí"><span>Sí</span></label>
+          <label><input type="radio" name="plano" value="En trámite"><span>En trámite</span></label>
+          <label><input type="radio" name="plano" value="No"><span>No</span></label>
+        </div>
+      </div>
+      <div>
+        <label class="f">Escritura</label>
+        <div class="chips">
+          <label><input type="radio" name="escritura" value="Sí"><span>Sí</span></label>
+          <label><input type="radio" name="escritura" value="En trámite"><span>En trámite</span></label>
+          <label><input type="radio" name="escritura" value="No"><span>No</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>¿Qué le interesa?</h2>
+    <div class="chips">
+      <label><input type="checkbox" name="bono" value="Ordinario"><span>Ordinario</span></label>
+      <label><input type="checkbox" name="bono" value="Patio"><span>Patio</span></label>
+      <label><input type="checkbox" name="bono" value="RAMT (reparación)"><span>RAMT (reparación)</span></label>
+      <label><input type="checkbox" name="bono" value="Crédito"><span>Crédito</span></label>
+      <label><input type="checkbox" name="bono" value="Adulto mayor"><span>Adulto mayor</span></label>
+      <label><input type="checkbox" name="bono" value="Art. 59"><span>Art. 59</span></label>
+      <label><input type="checkbox" name="bono" value="Clase media"><span>Clase media</span></label>
+      <label><input type="checkbox" name="bono" value="Solo información"><span>Solo información</span></label>
+    </div>
+    <label class="f" for="notas" style="margin-top:14px">Notas</label>
+    <textarea id="notas" name="notas" placeholder="Ej.: heredó la propiedad a sus hijos; la casa está en mal estado. Espera llamada."></textarea>
+    <label class="switch" style="margin-top:12px"><input type="checkbox" name="urgente" id="urgente"> 🚨 Urgente: darle seguimiento pronto</label>
+  </div>
+
+  <div class="card">
+    <label class="consent"><input type="checkbox" name="acepto" id="acepto">
+      <span>La persona aceptó que BH Constructora la contacte para darle información del bono. <em style="color:var(--red);font-style:normal">*</em></span></label>
+  </div>
+</form>
+</section>
+
+<!-- ============ MIS REGISTROS ============ -->
+<section id="mios" hidden>
+  <div class="tools">
+    <button class="btn yel" id="xlsMios">⬇ Descargar Excel</button>
+  </div>
+  <div id="lista"></div>
+  <p class="help">Estos registros quedan guardados solo en este celular. Si borra los datos del navegador, se pierden, pero ya están en el grupo de WhatsApp.</p>
+</section>
+
+<!-- ============ PARA EXCEL (CELESTE) ============ -->
+<section id="chat" hidden>
+  <div class="card">
+    <h2>Juntar los registros de todos</h2>
+    <div class="help">
+      <ol>
+        <li>En el grupo de WhatsApp: ⋮ → <b>Más</b> → <b>Exportar chat</b> → <b>Sin archivos</b>.</li>
+        <li>Abra aquí el archivo <b>.txt</b>, o pegue el texto del chat abajo.</li>
+        <li>Toque <b>Descargar Excel</b>.</li>
+      </ol>
+      Solo se toman los mensajes enviados con esta app. Si un registro se mandó dos veces, aparece una sola vez.
+    </div>
+    <div class="tools" style="margin-top:12px">
+      <label class="btn sec" style="flex:1">📄 Abrir archivo .txt<input type="file" id="txtFile" accept=".txt,text/plain" hidden></label>
+    </div>
+    <textarea id="chatTxt" placeholder="…o pegue aquí el texto del chat"></textarea>
+    <div class="stat"><div><b id="sTot">0</b><span>registros</span></div><div><b id="sUrg">0</b><span>urgentes</span></div><div><b id="sLote">0</b><span>con lote propio</span></div></div>
+    <button class="btn yel" id="xlsChat" style="width:100%">⬇ Descargar Excel</button>
+  </div>
+  <div class="tw" id="prev"></div>
+</section>
+</main>
+
+<div class="bar" id="bar">
+  <div class="in">
+    <p class="err" id="err" hidden></p>
+    <button class="btn main" id="enviar">Guardar y enviar al grupo ➜</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  "use strict";
+  var KEY = "bh_volanteo_v1", KEYV = "bh_volanteo_volantero";
+  var MARK = "REGISTRO BH";
+  var COLS = ["Código","Fecha","Volantero","Nombre","Teléfono","Otro teléfono","De quién","Lugar","Cantón","Ubicación",
+              "Lote","Plano","Escritura","Interés","Urgente","Notas","Aceptó contacto","Estado","Atendido por"];
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var form = $("#f");
+
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
+  function store(a) { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (e) {} }
+  function toast(t) { var e = $("#toast"); e.textContent = t; e.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { e.classList.remove("on"); }, 2600); }
+  function digits(s) { return String(s || "").replace(/\D/g, ""); }
+  function fmtTel(s) { var d = digits(s); if (d.length === 11 && d.indexOf("506") === 0) d = d.slice(3); return d.length === 8 ? d.slice(0, 4) + "-" + d.slice(4) : String(s || "").trim(); }
+  function okTel(s) { var d = digits(s); if (d.length === 11 && d.indexOf("506") === 0) d = d.slice(3); return /^[245678]\d{7}$/.test(d); }
+  function crNow(dt) {
+    try {
+      var p = {}; new Intl.DateTimeFormat("es-CR", { timeZone: "America/Costa_Rica", day: "2-digit", month: "2-digit", year: "numeric", hour: "numeric", minute: "2-digit", hour12: true })
+        .formatToParts(dt).forEach(function (x) { p[x.type] = x.value; });
+      return p.day + "/" + p.month + "/" + p.year + " " + p.hour + ":" + p.minute + " " + (/p/i.test(p.dayPeriod || "") ? "p. m." : "a. m.");
+    } catch (e) { return dt.toLocaleString(); }
+  }
+  function code(dt, vol) {
+    var p = {}; new Intl.DateTimeFormat("en-CA", { timeZone: "America/Costa_Rica", year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" })
+      .formatToParts(dt).forEach(function (x) { p[x.type] = x.value; });
+    var ini = (vol || "X").normalize("NFD").replace(/[^A-Za-z ]/g, "").split(/\s+/).filter(Boolean).map(function (w) { return w[0]; }).join("").slice(0, 3).toUpperCase() || "X";
+    return "BH-V-" + p.year + p.month + p.day + "-" + p.hour + p.minute + p.second + "-" + ini;
+  }
+
+  // ---------- pestañas
+  $$("nav button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      $$("nav button").forEach(function (x) { x.classList.toggle("on", x === b); });
+      $$("main > section").forEach(function (s) { s.hidden = s.id !== b.dataset.tab; });
+      $("#bar").hidden = b.dataset.tab !== "nuevo";
+      if (b.dataset.tab === "mios") renderMios();
+      window.scrollTo(0, 0);
+    });
+  });
+
+  // ---------- volantero recordado
+  var vol = $("#volantero");
+  try { vol.value = localStorage.getItem(KEYV) || ""; } catch (e) {}
+
+  // ---------- teléfonos con guion
+  ["#tel", "#tel2"].forEach(function (id) {
+    $(id).addEventListener("blur", function () { if (this.value) this.value = fmtTel(this.value); });
+  });
+
+  // ---------- GPS
+  $("#gpsBtn").addEventListener("click", function () {
+    var t = $("#gpsTxt");
+    if (!navigator.geolocation) { t.textContent = "Este celular no permite tomar la ubicación."; return; }
+    t.textContent = "Buscando ubicación…";
+    navigator.geolocation.getCurrentPosition(function (p) {
+      var v = p.coords.latitude.toFixed(6) + "," + p.coords.longitude.toFixed(6);
+      $("#gps").value = "https://maps.google.com/?q=" + v;
+      t.innerHTML = "✅ Ubicación guardada (±" + Math.round(p.coords.accuracy) + " m). <a href='" + $("#gps").value + "' target='_blank' rel='noopener'>Ver en el mapa</a>";
+    }, function () { t.textContent = "No se pudo tomar la ubicación. Revise que el GPS esté encendido y dé permiso."; },
+    { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
+  });
+
+  // ---------- leer el formulario
+  function val(n) { var e = form.querySelector('[name="' + n + '"]:checked'); return e ? e.value : ""; }
+  function collect() {
+    var dt = new Date(), v = vol.value.trim();
+    return {
+      "Código": code(dt, v), "Fecha": crNow(dt), "Volantero": v,
+      "Nombre": $("#nombre").value.trim().replace(/\s+/g, " "),
+      "Teléfono": fmtTel($("#tel").value), "Otro teléfono": fmtTel($("#tel2").value), "De quién": $("#tel2de").value.trim(),
+      "Lugar": $("#lugar").value.trim(), "Cantón": $("#canton").value, "Ubicación": $("#gps").value,
+      "Lote": val("lote"), "Plano": val("plano"), "Escritura": val("escritura"),
+      "Interés": $$('[name="bono"]:checked', form).map(function (e) { return e.value; }).join(", "),
+      "Urgente": $("#urgente").checked ? "Sí" : "No",
+      "Notas": $("#notas").value.trim().replace(/\s*\n\s*/g, " / "),
+      "Aceptó contacto": $("#acepto").checked ? "Sí" : "No", "Estado": "Pendiente", "Atendido por": ""
+    };
+  }
+  function check(r) {
+    if (!r["Volantero"]) return ["volantero", "Escriba su nombre de volantero."];
+    if (!r["Nombre"]) return ["nombre", "Falta el nombre de la persona."];
+    if (!okTel(r["Teléfono"])) return ["tel", "Revise el teléfono: deben ser 8 números."];
+    if (r["Otro teléfono"] && !okTel(r["Otro teléfono"])) return ["tel2", "Revise el otro teléfono: deben ser 8 números."];
+    if (!r["Lugar"]) return ["lugar", "Falta el pueblo o barrio."];
+    if (!r["Cantón"]) return ["canton", "Elija el cantón."];
+    if (!r["Lote"]) return ["lote", "Indique si tiene lote."];
+    if (r["Aceptó contacto"] !== "Sí") return ["acepto", "Confirme que la persona aceptó que BH la contacte."];
+    return null;
+  }
+
+  // ---------- mensaje para WhatsApp
+  function message(r) {
+    var L = ["📋 *" + MARK + " · Volanteo*"];
+    function add(k, label) { if (r[k]) L.push("*" + (label || k) + ":* " + r[k]); }
+    add("Nombre"); add("Teléfono");
+    if (r["Otro teléfono"]) L.push("*Otro teléfono:* " + r["Otro teléfono"] + (r["De quién"] ? " (" + r["De quién"] + ")" : ""));
+    L.push("*Lugar:* " + r["Lugar"] + " · " + r["Cantón"]);
+    add("Ubicación"); add("Lote"); add("Plano"); add("Escritura"); add("Interés");
+    if (r["Urgente"] === "Sí") L.push("*Urgente:* 🚨 Sí");
+    add("Notas"); add("Volantero"); add("Fecha");
+    L.push("*Aceptó contacto:* " + r["Aceptó contacto"]);
+    L.push("*Código:* " + r["Código"]);
+    return L.join("\n");
+  }
+  function sendWA(r) { window.open("https://wa.me/?text=" + encodeURIComponent(message(r)), "_blank"); }
+
+  $("#enviar").addEventListener("click", function () {
+    var r = collect(), bad = check(r), err = $("#err");
+    if (bad) {
+      err.textContent = bad[1]; err.hidden = false;
+      var el = form.querySelector('[name="' + bad[0] + '"]'); if (el) { el.scrollIntoView({ block: "center", behavior: "smooth" }); if (el.focus) el.focus({ preventScroll: true }); }
+      return;
+    }
+    err.hidden = true;
+    try { localStorage.setItem(KEYV, r["Volantero"]); } catch (e) {}
+    var a = load(); a.unshift(r); store(a); count();
+    sendWA(r);
+    form.reset(); vol.value = r["Volantero"]; $("#gps").value = ""; $("#gpsTxt").textContent = "Úselo estando en el lugar.";
+    window.scrollTo(0, 0);
+    toast("✅ Guardado. Elija el grupo de BH en WhatsApp y envíelo.");
+  });
+
+  // ---------- mis registros
+  function count() { $("#nMios").textContent = load().length; }
+  function esc(s) { return String(s || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function renderMios() {
+    var a = load(), box = $("#lista");
+    if (!a.length) { box.innerHTML = '<p class="empty">Todavía no hay registros en este celular.</p>'; return; }
+    box.innerHTML = a.map(function (r, i) {
+      return '<div class="rec' + (r["Urgente"] === "Sí" ? " urg" : "") + '"><h3>' + esc(r["Nombre"]) + '</h3>' +
+        '<p>📞 ' + esc(r["Teléfono"]) + ' · 📍 ' + esc(r["Lugar"]) + ', ' + esc(r["Cantón"]) + '</p>' +
+        '<p>' + (r["Urgente"] === "Sí" ? '<span class="tag r">Urgente</span>' : "") + '<span class="tag' + (r["Lote"] === "Propio" ? " g" : "") + '">Lote: ' + esc(r["Lote"]) + '</span>' +
+        (r["Interés"] ? '<span class="tag">' + esc(r["Interés"]) + '</span>' : "") + '</p>' +
+        '<p style="font-size:12.5px">' + esc(r["Fecha"]) + ' · ' + esc(r["Código"]) + '</p>' +
+        '<div class="acts"><button class="btn sec" data-re="' + i + '">Reenviar</button><button class="btn ghost" data-del="' + i + '">Borrar</button></div></div>';
+    }).join("");
+  }
+  $("#lista").addEventListener("click", function (e) {
+    var a = load(), t = e.target;
+    if (t.dataset.re) sendWA(a[+t.dataset.re]);
+    if (t.dataset.del && confirm("¿Borrar este registro de este celular?")) { a.splice(+t.dataset.del, 1); store(a); count(); renderMios(); }
+  });
+  $("#xlsMios").addEventListener("click", function () {
+    var a = load(); if (!a.length) { toast("No hay registros para descargar."); return; }
+    xlsx(a, "Volanteo-" + (vol.value || "registros").replace(/\s+/g, "-") + ".xlsx");
+  });
+
+  // ---------- leer el chat exportado
+  var KEYS = {}; COLS.forEach(function (c) { KEYS[c.toLowerCase()] = c; });
+  function parseChat(txt) {
+    var lines = String(txt || "").replace(/\r/g, "").split("\n"), out = {}, cur = null;
+    var head = /^\[?\d{1,2}\/\d{1,2}\/\d{2,4},?\s+\d{1,2}:\d{2}/; // inicio de un mensaje de WhatsApp exportado
+    function close() { if (cur && cur["Código"] && cur["Nombre"]) { cur["Estado"] = cur["Estado"] || "Pendiente"; out[cur["Código"]] = cur; } cur = null; }
+    lines.forEach(function (ln) {
+      if (ln.indexOf(MARK) !== -1) { close(); cur = {}; return; }
+      if (!cur) return;
+      if (head.test(ln) && ln.indexOf(MARK) === -1) { close(); return; }
+      var m = ln.replace(/‎|‏/g, "").match(/^\s*\*?([^*:]{2,30}):\*?\s*(.*)$/);
+      if (!m) return;
+      var k = m[1].trim().toLowerCase(), v = m[2].replace(/\*/g, "").trim();
+      if (k === "lugar") { var p = v.split(" · "); cur["Lugar"] = p[0]; cur["Cantón"] = p[1] || ""; return; }
+      if (k === "otro teléfono") { var q = v.match(/^(.*?)\s*\((.*)\)\s*$/); cur["Otro teléfono"] = q ? q[1] : v; cur["De quién"] = q ? q[2] : ""; return; }
+      if (k === "urgente") { cur["Urgente"] = /s[ií]/i.test(v) ? "Sí" : "No"; return; }
+      if (KEYS[k]) cur[KEYS[k]] = v;
+      if (k === "código") close();
+    });
+    close();
+    return Object.keys(out).map(function (k) { var r = out[k]; if (!r["Urgente"]) r["Urgente"] = "No"; return r; });
+  }
+  var parsed = [];
+  function refreshChat() {
+    parsed = parseChat($("#chatTxt").value);
+    $("#sTot").textContent = parsed.length;
+    $("#sUrg").textContent = parsed.filter(function (r) { return r["Urgente"] === "Sí"; }).length;
+    $("#sLote").textContent = parsed.filter(function (r) { return r["Lote"] === "Propio"; }).length;
+    $("#prev").innerHTML = parsed.length ? "<table><tr>" + ["Nombre","Teléfono","Lugar","Cantón","Lote","Urgente","Volantero","Fecha"].map(function (c) { return "<th>" + c + "</th>"; }).join("") + "</tr>" +
+      parsed.map(function (r) { return "<tr>" + ["Nombre","Teléfono","Lugar","Cantón","Lote","Urgente","Volantero","Fecha"].map(function (c) { return "<td>" + esc(r[c]) + "</td>"; }).join("") + "</tr>"; }).join("") + "</table>" : "";
+  }
+  $("#chatTxt").addEventListener("input", refreshChat);
+  $("#txtFile").addEventListener("change", function () {
+    var f = this.files[0]; if (!f) return;
+    var rd = new FileReader(); rd.onload = function () { $("#chatTxt").value = rd.result; refreshChat(); toast(parsed.length + " registros encontrados"); }; rd.readAsText(f, "utf-8");
+  });
+  $("#xlsChat").addEventListener("click", function () {
+    if (!parsed.length) { toast("Primero abra o pegue el chat exportado."); return; }
+    var d = new Date(), p = {}; new Intl.DateTimeFormat("en-CA", { timeZone: "America/Costa_Rica", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(d).forEach(function (x) { p[x.type] = x.value; });
+    xlsx(parsed, "Volanteo-BH-" + p.year + "-" + p.month + "-" + p.day + ".xlsx");
+  });
+
+  // ---------- Excel (.xlsx) sin librerías
+  function xmlEsc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, ""); }
+  function colName(i) { var s = ""; i++; while (i > 0) { var m = (i - 1) % 26; s = String.fromCharCode(65 + m) + s; i = Math.floor((i - 1) / 26); } return s; }
+  function xlsx(rows, name) {
+    var W = [26,18,18,30,12,12,14,28,12,34,20,11,11,30,9,50,15,12,16];
+    var sheet = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">' +
+      '<sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>' +
+      W.map(function (w, i) { return '<col min="' + (i + 1) + '" max="' + (i + 1) + '" width="' + w + '" customWidth="1"/>'; }).join("") + '</cols><sheetData>';
+    var all = [COLS].concat(rows.map(function (r) { return COLS.map(function (c) { return r[c] || ""; }); }));
+    all.forEach(function (row, ri) {
+      sheet += '<row r="' + (ri + 1) + '">' + row.map(function (v, ci) {
+        var ref = colName(ci) + (ri + 1), st = ri === 0 ? ' s="1"' : (COLS[ci] === "Urgente" && v === "Sí" ? ' s="2"' : "");
+        if (ri > 0 && COLS[ci] === "Ubicación" && /^https?:/.test(v)) return '<c r="' + ref + '" t="str" s="3"><f>HYPERLINK("' + xmlEsc(v) + '","Ver mapa")</f><v>Ver mapa</v></c>';
+        return '<c r="' + ref + '" t="inlineStr"' + st + '><is><t xml:space="preserve">' + xmlEsc(v) + '</t></is></c>';
+      }).join("") + '</row>';
+    });
+    sheet += '</sheetData><autoFilter ref="A1:' + colName(COLS.length - 1) + all.length + '"/></worksheet>';
+    var styles = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' +
+      '<fonts count="4"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFC62828"/><name val="Calibri"/></font><font><u/><sz val="11"/><color rgb="FF1155CC"/><name val="Calibri"/></font></fonts>' +
+      '<fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF0B1E3F"/><bgColor indexed="64"/></patternFill></fill></fills>' +
+      '<borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>' +
+      '<cellXfs count="4"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1"/><xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/><xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>';
+    var files = {
+      "[Content_Types].xml": '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>',
+      "_rels/.rels": '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>',
+      "xl/workbook.xml": '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Volanteo" sheetId="1" r:id="rId1"/></sheets><definedNames><definedName name="_xlnm._FilterDatabase" localSheetId="0" hidden="1">Volanteo!$A$1:$' + colName(COLS.length - 1) + '$' + all.length + '</definedName></definedNames></workbook>',
+      "xl/_rels/workbook.xml.rels": '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>',
+      "xl/worksheets/sheet1.xml": sheet,
+      "xl/styles.xml": styles
+    };
+    var blob = new Blob([zip(files)], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+    toast("⬇ Excel descargado: " + rows.length + " registros");
+  }
+  var CRC = (function () { var t = [], c; for (var n = 0; n < 256; n++) { c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+  function crc32(b) { var c = 0xFFFFFFFF; for (var i = 0; i < b.length; i++) c = CRC[(c ^ b[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+  function zip(files) {
+    var enc = new TextEncoder(), parts = [], central = [], off = 0;
+    function u16(v) { return [v & 255, (v >>> 8) & 255]; }
+    function u32(v) { return [v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255]; }
+    Object.keys(files).forEach(function (name) {
+      var nb = enc.encode(name), data = enc.encode(files[name]), crc = crc32(data);
+      var head = [].concat(u32(0x04034b50), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(data.length), u32(data.length), u16(nb.length), u16(0));
+      parts.push(new Uint8Array(head), nb, data);
+      central.push(new Uint8Array([].concat(u32(0x02014b50), u16(20), u16(20), u16(0x0800), u16(0), u16(0), u16(0x21), u32(crc), u32(data.length), u32(data.length), u16(nb.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(off))), nb);
+      off += head.length + nb.length + data.length;
+    });
+    var csize = central.reduce(function (s, p) { return s + p.length; }, 0);
+    var end = new Uint8Array([].concat(u32(0x06054b50), u16(0), u16(0), u16(Object.keys(files).length), u16(Object.keys(files).length), u32(csize), u32(off), u16(0)));
+    return new Blob(parts.concat(central, [end]));
+  }
+
+  count();
+})();
+</script>
+</body>
+</html>
